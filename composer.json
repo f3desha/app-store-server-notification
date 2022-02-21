@@ -1,0 +1,15 @@
+{
+    "name": "developer/strategy_case",
+    "autoload": {
+        "psr-4": {
+            "Kilohealth\\App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Oleksandr Kuzmenko",
+            "email": "oleksandr.kuzmenko@rocketroute.com"
+        }
+    ],
+    "require": {}
+}
