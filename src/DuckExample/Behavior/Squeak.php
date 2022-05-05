@@ -5,7 +5,7 @@ namespace OOP\App\DuckExample\Behavior;
 class Squeak implements QuackBehavior
 {
 
-    public function quack()
+    public function quack() : void
     {
         echo "Pi Pi!\n";
     }

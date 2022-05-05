@@ -18,7 +18,7 @@ abstract class Duck
     /**
      * @param FlyBehavior $flyBehavior
      */
-    public function setFlyBehavior(FlyBehavior $flyBehavior): void
+    public function setFlyBehavior(FlyBehavior $flyBehavior) : void
     {
         $this->flyBehavior = $flyBehavior;
     }
@@ -26,7 +26,7 @@ abstract class Duck
     /**
      * @param QuackBehavior $quackBehavior
      */
-    public function setQuackBehavior(QuackBehavior $quackBehavior): void
+    public function setQuackBehavior(QuackBehavior $quackBehavior) : void
     {
         $this->quackBehavior = $quackBehavior;
     }

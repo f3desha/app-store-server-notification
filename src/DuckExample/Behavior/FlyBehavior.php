@@ -4,5 +4,5 @@ namespace OOP\App\DuckExample\Behavior;
 
 interface FlyBehavior
 {
-    public function fly();
+    public function fly() : void;
 }
