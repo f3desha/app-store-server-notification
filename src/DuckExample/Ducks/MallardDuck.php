@@ -9,8 +9,8 @@ class MallardDuck extends Duck
 {
     public function __construct()
     {
-        $this->quackBehavior = new Quack();
-        $this->flyBehavior = new FlyWithWings();
+        $this->setQuackBehavior(new Quack());
+        $this->setFlyBehavior(new FlywithWings());
     }
 
 

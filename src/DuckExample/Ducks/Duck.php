@@ -15,6 +15,22 @@ abstract class Duck
         echo 'Swimming';
     }
 
+    /**
+     * @param FlyBehavior $flyBehavior
+     */
+    public function setFlyBehavior(FlyBehavior $flyBehavior): void
+    {
+        $this->flyBehavior = $flyBehavior;
+    }
+
+    /**
+     * @param QuackBehavior $quackBehavior
+     */
+    public function setQuackBehavior(QuackBehavior $quackBehavior): void
+    {
+        $this->quackBehavior = $quackBehavior;
+    }
+
     public function performFly()
     {
         $this->flyBehavior->fly();

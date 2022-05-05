@@ -11,6 +11,13 @@ class MiniDuckSimulator extends TestCase
         $mallardDuck->display();
         $mallardDuck->performQuack();
         $mallardDuck->performFly();
+
+        $modelDuck = new \OOP\App\DuckExample\Ducks\ModelDuck();
+        $modelDuck->display();
+        $modelDuck->performFly();
+        $modelDuck->setFlyBehavior(new \OOP\App\DuckExample\Behavior\RocketFly());
+        $modelDuck->performFly();
+
         $this->assertSame(0, 0);
     }
 }
