@@ -2,7 +2,7 @@
     "name": "developer/strategy_case",
     "autoload": {
         "psr-4": {
-            "Kilohealth\\App\\": "src/"
+            "OOP\\App\\": "src/"
         }
     },
     "authors": [
@@ -11,5 +11,7 @@
             "email": "oleksandr.kuzmenko@rocketroute.com"
         }
     ],
-    "require": {}
+    "require-dev": {
+        "phpunit/phpunit": "9.5"
+    }
 }
