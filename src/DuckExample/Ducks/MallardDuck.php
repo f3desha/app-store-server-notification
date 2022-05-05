@@ -1,6 +1,9 @@
 <?php
 
-namespace OOP\App\DuckExample;
+namespace OOP\App\DuckExample\Ducks;
+
+use OOP\App\DuckExample\Behavior\FlyWithWings;
+use OOP\App\DuckExample\Behavior\Quack;
 
 class MallardDuck extends Duck
 {

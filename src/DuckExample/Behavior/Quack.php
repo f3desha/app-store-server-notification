@@ -1,6 +1,6 @@
 <?php
 
-namespace OOP\App\DuckExample;
+namespace OOP\App\DuckExample\Behavior;
 
 class Quack implements QuackBehavior
 {

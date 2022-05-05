@@ -1,6 +1,9 @@
 <?php
 
-namespace OOP\App\DuckExample;
+namespace OOP\App\DuckExample\Ducks;
+
+use OOP\App\DuckExample\Behavior\FlyBehavior;
+use OOP\App\DuckExample\Behavior\QuackBehavior;
 
 abstract class Duck
 {

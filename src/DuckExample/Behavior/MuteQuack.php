@@ -1,6 +1,6 @@
 <?php
 
-namespace OOP\App\DuckExample;
+namespace OOP\App\DuckExample\Behavior;
 
 class MuteQuack implements QuackBehavior
 {

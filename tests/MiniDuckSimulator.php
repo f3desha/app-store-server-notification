@@ -1,6 +1,6 @@
 <?php
 
-use OOP\App\DuckExample\MallardDuck;
+use OOP\App\DuckExample\Ducks\MallardDuck;
 use PHPUnit\Framework\TestCase;
 
 class MiniDuckSimulator extends TestCase
