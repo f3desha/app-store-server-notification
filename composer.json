@@ -17,11 +17,15 @@
         "phpstan/phpstan": "^1.6",
         "vimeo/psalm": "^4.23",
         "squizlabs/php_codesniffer": "^3.6",
-        "phpmd/phpmd" : "@stable"
+        "phpmd/phpmd" : "@stable",
+        "friendsofphp/php-cs-fixer": "^3.8"
     },
     "config": {
         "allow-plugins": {
             "composer/package-versions-deprecated": true
         }
+    },
+    "require": {
+
     }
 }
