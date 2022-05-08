@@ -1,6 +1,8 @@
 <?php
 namespace OOP\Tests;
 
+use OOP\App\DuckExample\Behavior\Squeak;
+use OOP\App\DuckExample\Ducks\Manok;
 use PHPUnit\Framework\TestCase;
 use OOP\App\DuckExample\Ducks\MallardDuck;
 use OOP\App\DuckExample\Ducks\ModelDuck;
@@ -21,6 +23,12 @@ class MiniDuckSimulator extends TestCase
         $modelDuck->performFly();
         $modelDuck->setFlyBehavior(new RocketFly());
         $modelDuck->performFly();
+
+        $manok = new Manok();
+        $manok->display();
+        $manok->performQuack();
+        $manok->setQuackBehavior(new Squeak());
+        $manok->performQuack();
 
         $animal = new Dog();
         $animal->giveAVoice();
