@@ -3,6 +3,7 @@ namespace OOP\Tests;
 
 use OOP\App\WeatherStationExample\CurrentConditionsDisplay;
 use OOP\App\WeatherStationExample\ForecastDisplay;
+use OOP\App\WeatherStationExample\HeatIndexDisplay;
 use OOP\App\WeatherStationExample\StatisticsDisplay;
 use OOP\App\WeatherStationExample\WeatherData;
 use PHPUnit\Framework\TestCase;
@@ -23,6 +24,7 @@ class WeatherStationTest extends TestCase
 
         //Add one more observer
         new ForecastDisplay($weatherData);
+        new HeatIndexDisplay($weatherData);
         $weatherData->setMeasurements(21, 58, 3);
 
         $this->assertSame(0, 0);
