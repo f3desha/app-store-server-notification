@@ -11,12 +11,19 @@ class WeatherStationTest extends TestCase
 {
     public function testGame()
     {
+        //Subject creation
         $weatherData = new WeatherData();
+
+        //Observers creation
         new CurrentConditionsDisplay($weatherData);
         new StatisticsDisplay($weatherData);
-        new ForecastDisplay($weatherData);
 
         $weatherData->setMeasurements(23, 57, 3);
+        $weatherData->setMeasurements(25, 37, 3);
+
+        //Add one more observer
+        new ForecastDisplay($weatherData);
+        $weatherData->setMeasurements(21, 58, 3);
 
         $this->assertSame(0, 0);
     }
