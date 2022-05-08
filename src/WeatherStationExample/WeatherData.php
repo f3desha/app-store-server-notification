@@ -24,14 +24,6 @@ class WeatherData implements Subject
      */
     private float $pressure;
 
-    /**
-     * @return float
-     */
-    public function getHumidity(): float
-    {
-        return $this->humidity;
-    }
-
     public function registerObserver(Observer $o): void
     {
         $this->observers[] = $o;
@@ -50,22 +42,6 @@ class WeatherData implements Subject
         foreach ($this->observers as $o) {
             $o->update($this->temperature, $this->humidity, $this->pressure);
         }
-    }
-
-    /**
-     * @return float
-     */
-    public function getPressure(): float
-    {
-        return $this->pressure;
-    }
-
-    /**
-     * @return float
-     */
-    public function getTemperature(): float
-    {
-        return $this->temperature;
     }
 
     public function measurementsChanged(): void
