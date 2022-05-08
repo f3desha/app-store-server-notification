@@ -3,7 +3,7 @@
     "autoload": {
         "psr-4": {
             "OOP\\App\\": "src/",
-            "OOP\\Tests": "tests/"
+            "OOP\\Tests\\": "tests/"
         }
     },
     "authors": [
@@ -16,7 +16,8 @@
         "phpunit/phpunit": "9.5",
         "phpstan/phpstan": "^1.6",
         "vimeo/psalm": "^4.23",
-        "squizlabs/php_codesniffer": "^3.6"
+        "squizlabs/php_codesniffer": "^3.6",
+        "phpmd/phpmd" : "@stable"
     },
     "config": {
         "allow-plugins": {
