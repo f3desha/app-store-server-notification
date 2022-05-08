@@ -10,5 +10,4 @@ class Cat extends Animal
     {
         $this->setVoiceBehavior(new MeowBehavior());
     }
-
 }

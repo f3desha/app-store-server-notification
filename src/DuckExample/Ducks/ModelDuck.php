@@ -11,7 +11,6 @@ class ModelDuck extends Duck
     {
         $this->flyBehavior = new FlyNoWay();
         $this->quackBehavior = new Quack();
-
     }
 
     public function display()

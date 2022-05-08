@@ -10,5 +10,4 @@ class Dog extends Animal
     {
         $this->setVoiceBehavior(new BarkBehavior());
     }
-
 }
