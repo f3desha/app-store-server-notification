@@ -27,5 +27,4 @@ class Baker implements Observer
     {
         echo "Backer says: thx for update!\n";
     }
-
 }

@@ -31,5 +31,4 @@ class Store implements Subject
     {
         $this->notifyObservers();
     }
-
 }
