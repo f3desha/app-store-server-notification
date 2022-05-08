@@ -23,7 +23,7 @@ class CurrentConditionsDisplay implements Observer, DisplayElement
     /**
      * @param Subject $weatherData
      */
-    public function     __construct(Subject $weatherData)
+    public function __construct(Subject $weatherData)
     {
         $this->weatherData = $weatherData;
         $this->weatherData->registerObserver($this);

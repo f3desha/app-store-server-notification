@@ -10,7 +10,7 @@ class WeatherStationTest extends TestCase
     public function testGame()
     {
         $weatherData = new WeatherData();
-        $display1 = new CurrentConditionsDisplay($weatherData);
+        new CurrentConditionsDisplay($weatherData);
 
         $weatherData->setMeasurements(23, 57, 3);
 
