@@ -12,7 +12,7 @@ class WeatherStationTest extends TestCase
         $weatherData = new WeatherData();
         $display1 = new CurrentConditionsDisplay($weatherData);
 
-        $weatherData->setMeasurements(1, 2, 3);
+        $weatherData->setMeasurements(23, 57, 3);
 
         $this->assertSame(0, 0);
     }
