@@ -16,15 +16,15 @@ class WeatherStationTest extends TestCase
         $weatherData = new WeatherData();
 
         //Observers creation
-        new CurrentConditionsDisplay();
-        new StatisticsDisplay();
+        new CurrentConditionsDisplay($weatherData);
+        new StatisticsDisplay($weatherData);
 
         $weatherData->setMeasurements(23, 57, 3);
         $weatherData->setMeasurements(25, 37, 3);
 
         //Add one more observer
-        new ForecastDisplay();
-        new HeatIndexDisplay();
+        new ForecastDisplay($weatherData);
+        new HeatIndexDisplay($weatherData);
         $weatherData->setMeasurements(21, 58, 3);
 
         $this->assertSame(0, 0);
