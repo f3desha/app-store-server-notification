@@ -5,6 +5,16 @@ namespace OOP\App\WeatherStationExample;
 class ForecastDisplay implements DisplayElement, Observer
 {
     /**
+     * @var float
+     */
+    private float $temperature;
+
+    /**
+     * @var float
+     */
+
+    private float $humidity;
+    /**
      * @param Subject $weatherData
      */
     public function __construct(Subject $weatherData)
