@@ -19,5 +19,4 @@ class CurrentConditionsDisplay implements DisplayElement
     {
         echo "Current conditions: {$this->temperature}F degrees and {$this->humidity}% humidity\n";
     }
-
 }

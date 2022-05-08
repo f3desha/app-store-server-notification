@@ -4,8 +4,6 @@ namespace OOP\App\WeatherStationExample;
 
 class StatisticsDisplay implements DisplayElement
 {
-
-
     /**
      * @var float
      */
