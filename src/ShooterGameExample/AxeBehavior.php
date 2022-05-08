@@ -1,6 +1,6 @@
 <?php
 
-namespace OOP\App\ShooterGameExample\Behavior;
+namespace OOP\App\ShooterGameExample;
 
 class AxeBehavior implements WeaponBehavior
 {

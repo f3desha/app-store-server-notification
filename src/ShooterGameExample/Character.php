@@ -1,8 +1,6 @@
 <?php
 
-namespace OOP\App\ShooterGameExample\Characters;
-
-use OOP\App\ShooterGameExample\Behavior\WeaponBehavior;
+namespace OOP\App\ShooterGameExample;
 
 abstract class Character
 {

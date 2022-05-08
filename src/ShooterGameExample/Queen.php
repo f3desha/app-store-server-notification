@@ -1,6 +1,6 @@
 <?php
 
-namespace OOP\App\ShooterGameExample\Characters;
+namespace OOP\App\ShooterGameExample;
 
 class Queen extends Character
 {
