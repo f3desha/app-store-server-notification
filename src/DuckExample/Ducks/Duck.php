@@ -10,7 +10,7 @@ abstract class Duck
     protected FlyBehavior $flyBehavior;
     protected QuackBehavior $quackBehavior;
 
-    public function swim()
+    public function swim(): void
     {
         echo 'Swimming';
     }
@@ -31,12 +31,12 @@ abstract class Duck
         $this->quackBehavior = $quackBehavior;
     }
 
-    public function performFly()
+    public function performFly(): void
     {
         $this->flyBehavior->fly();
     }
 
-    public function performQuack()
+    public function performQuack(): void
     {
         $this->quackBehavior->quack();
     }
