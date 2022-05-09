@@ -1,6 +1,6 @@
 <?php
 
-namespace OOP\App\WeatherStationExample;
+namespace OOP\App\Observer\WeatherStationExample;
 
 use SplObserver;
 use SplSubject;

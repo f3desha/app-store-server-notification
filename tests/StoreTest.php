@@ -1,9 +1,9 @@
 <?php
 namespace OOP\Tests;
 
-use OOP\App\StoreExample\Baker;
-use OOP\App\StoreExample\Butcher;
-use OOP\App\StoreExample\Store;
+use OOP\App\Observer\StoreExample\Baker;
+use OOP\App\Observer\StoreExample\Butcher;
+use OOP\App\Observer\StoreExample\Store;
 use PHPUnit\Framework\TestCase;
 
 class StoreTest extends TestCase

@@ -1,11 +1,11 @@
 <?php
 namespace OOP\Tests;
 
-use OOP\App\WeatherStationExample\CurrentConditionsDisplay;
-use OOP\App\WeatherStationExample\ForecastDisplay;
-use OOP\App\WeatherStationExample\WeatherData;
-use OOP\App\WeatherStationExample\StatisticsDisplay;
-use OOP\App\WeatherStationExample\HeatIndexDisplay;
+use OOP\App\Observer\WeatherStationExample\CurrentConditionsDisplay;
+use OOP\App\Observer\WeatherStationExample\ForecastDisplay;
+use OOP\App\Observer\WeatherStationExample\HeatIndexDisplay;
+use OOP\App\Observer\WeatherStationExample\StatisticsDisplay;
+use OOP\App\Observer\WeatherStationExample\WeatherData;
 use PHPUnit\Framework\TestCase;
 
 class WeatherStationTest extends TestCase

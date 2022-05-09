@@ -1,6 +1,6 @@
 <?php
 
-namespace OOP\App\StoreExample;
+namespace OOP\App\Observer\StoreExample;
 
 class Baker implements Observer
 {
