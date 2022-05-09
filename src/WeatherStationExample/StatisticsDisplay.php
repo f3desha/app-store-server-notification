@@ -2,12 +2,15 @@
 
 namespace OOP\App\WeatherStationExample;
 
-class StatisticsDisplay implements DisplayElement, \SplObserver
+use SplObserver;
+use SplSubject;
+
+class StatisticsDisplay implements DisplayElement, SplObserver
 {
     /**
-     * @var \SplSubject
+     * @var SplSubject
      */
-    private \SplSubject $weatherData;
+    private SplSubject $weatherData;
 
     /**
      * @var float
@@ -15,9 +18,9 @@ class StatisticsDisplay implements DisplayElement, \SplObserver
     private float $temperature;
 
     /**
-     * @param \SplSubject $weatherData
+     * @param SplSubject $weatherData
      */
-    public function __construct(\SplSubject $weatherData)
+    public function __construct(SplSubject $weatherData)
     {
         $this->weatherData = $weatherData;
         $this->weatherData->attach($this);
@@ -28,9 +31,13 @@ class StatisticsDisplay implements DisplayElement, \SplObserver
         echo "Avg temperature = {$this->temperature}\n";
     }
 
-    public function update(\SplSubject $weatherData): void
+    /**
+     * @param SplSubject $subject
+     * @return void
+     */
+    public function update(SplSubject $subject): void
     {
-        $this->temperature = $weatherData->getTemperature();
+        $this->temperature = $subject->getTemperature();
         $this->display();
     }
 }
