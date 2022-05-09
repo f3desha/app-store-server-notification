@@ -2,13 +2,13 @@
 
 namespace OOP\App\WeatherStationExample;
 
-class HeatIndexDisplay implements DisplayElement, Observer
+class HeatIndexDisplay implements DisplayElement, \SplObserver
 {
 
     /**
-     * @var Subject
+     * @var \SplSubject
      */
-    private Subject $weatherData;
+    private \SplSubject $weatherData;
 
     /**
      * @var float
@@ -21,12 +21,12 @@ class HeatIndexDisplay implements DisplayElement, Observer
     private float $humidity;
 
     /**
-     * @param Subject $weatherData
+     * @param \SplSubject $weatherData
      */
-    public function __construct(Subject $weatherData)
+    public function __construct(\SplSubject $weatherData)
     {
         $this->weatherData = $weatherData;
-        $this->weatherData->registerObserver($this);
+        $this->weatherData->attach($this);
     }
 
     private function computeHeatIndex(float $t, float $rh): float
@@ -46,10 +46,10 @@ class HeatIndexDisplay implements DisplayElement, Observer
         echo "Heat index is {$this->computeHeatIndex($this->temperature, $this->humidity)}\n";
     }
 
-    public function update(float $temperature, float $humidity, float $pressure)
+    public function update(\SplSubject $weatherData): void
     {
-        $this->temperature = $temperature;
-        $this->humidity = $humidity;
+        $this->temperature = $weatherData->getTemperature();
+        $this->humidity = $weatherData->getHumidity();
         $this->display();
     }
 }

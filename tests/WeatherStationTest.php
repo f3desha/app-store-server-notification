@@ -3,9 +3,9 @@ namespace OOP\Tests;
 
 use OOP\App\WeatherStationExample\CurrentConditionsDisplay;
 use OOP\App\WeatherStationExample\ForecastDisplay;
-use OOP\App\WeatherStationExample\HeatIndexDisplay;
-use OOP\App\WeatherStationExample\StatisticsDisplay;
 use OOP\App\WeatherStationExample\WeatherData;
+use OOP\App\WeatherStationExample\StatisticsDisplay;
+use OOP\App\WeatherStationExample\HeatIndexDisplay;
 use PHPUnit\Framework\TestCase;
 
 class WeatherStationTest extends TestCase

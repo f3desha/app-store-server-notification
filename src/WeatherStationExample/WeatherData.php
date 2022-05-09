@@ -2,10 +2,10 @@
 
 namespace OOP\App\WeatherStationExample;
 
-class WeatherData implements Subject
+class WeatherData implements \SplSubject
 {
     /**
-     * @var Observer[]
+     * @var \SplObserver[]
      */
     private array $observers;
 
@@ -26,7 +26,7 @@ class WeatherData implements Subject
 
     public function measurementsChanged(): void
     {
-        $this->notifyObservers();
+        $this->notify();
     }
 
     public function setMeasurements(float $temperature, float $humidity, float $pressure): void
@@ -37,21 +37,48 @@ class WeatherData implements Subject
         $this->measurementsChanged();
     }
 
-    public function registerObserver(Observer $o): void
+    public function attach(\SplObserver $o): void
     {
         $this->observers[] = $o;
     }
 
-    public function removeObserver(Observer $o): void
+    public function detach(\SplObserver $o): void
     {
         $key = array_search($o, $this->observers);
         unset($this->observers[$key]);
     }
 
-    public function notifyObservers(): void
+    /**
+     * @return void
+     */
+    public function notify(): void
     {
         foreach ($this->observers as $o) {
-            $o->update($this->temperature, $this->humidity, $this->pressure);
+            $o->update($this);
         }
+    }
+
+    /**
+     * @return float
+     */
+    public function getTemperature(): float
+    {
+        return $this->temperature;
+    }
+
+    /**
+     * @return float
+     */
+    public function getHumidity(): float
+    {
+        return $this->humidity;
+    }
+
+    /**
+     * @return float
+     */
+    public function getPressure(): float
+    {
+        return $this->pressure;
     }
 }
