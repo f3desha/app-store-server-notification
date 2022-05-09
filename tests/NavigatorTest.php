@@ -1,9 +1,9 @@
 <?php
 namespace OOP\Tests;
 
+use OOP\App\Strategy\NavigatorExample\Navigator;
+use OOP\App\Strategy\NavigatorExample\Strategies\PublicTransportStrategy;
 use PHPUnit\Framework\TestCase;
-use OOP\App\NavigatorExample\Navigator;
-use OOP\App\NavigatorExample\Strategies\PublicTransportStrategy;
 
 class NavigatorTest extends TestCase
 {

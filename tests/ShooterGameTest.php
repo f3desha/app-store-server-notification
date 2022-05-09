@@ -1,14 +1,14 @@
 <?php
 namespace OOP\Tests;
 
-use OOP\App\ShooterGameExample\AxeBehavior;
-use OOP\App\ShooterGameExample\BowAndArrowBehavior;
-use OOP\App\ShooterGameExample\King;
-use OOP\App\ShooterGameExample\KnifeBehavior;
-use OOP\App\ShooterGameExample\Knight;
-use OOP\App\ShooterGameExample\Queen;
-use OOP\App\ShooterGameExample\SwordBehavior;
-use OOP\App\ShooterGameExample\Troll;
+use OOP\App\Strategy\ShooterGameExample\AxeBehavior;
+use OOP\App\Strategy\ShooterGameExample\BowAndArrowBehavior;
+use OOP\App\Strategy\ShooterGameExample\King;
+use OOP\App\Strategy\ShooterGameExample\KnifeBehavior;
+use OOP\App\Strategy\ShooterGameExample\Knight;
+use OOP\App\Strategy\ShooterGameExample\Queen;
+use OOP\App\Strategy\ShooterGameExample\SwordBehavior;
+use OOP\App\Strategy\ShooterGameExample\Troll;
 use PHPUnit\Framework\TestCase;
 
 class ShooterGameTest extends TestCase

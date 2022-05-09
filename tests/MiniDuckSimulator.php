@@ -1,13 +1,13 @@
 <?php
 namespace OOP\Tests;
 
-use OOP\App\DuckExample\Behavior\Squeak;
-use OOP\App\DuckExample\Ducks\Manok;
+use OOP\App\Strategy\AnimalExample\Animals\Dog;
+use OOP\App\Strategy\DuckExample\Behavior\RocketFly;
+use OOP\App\Strategy\DuckExample\Behavior\Squeak;
+use OOP\App\Strategy\DuckExample\Ducks\MallardDuck;
+use OOP\App\Strategy\DuckExample\Ducks\Manok;
+use OOP\App\Strategy\DuckExample\Ducks\ModelDuck;
 use PHPUnit\Framework\TestCase;
-use OOP\App\DuckExample\Ducks\MallardDuck;
-use OOP\App\DuckExample\Ducks\ModelDuck;
-use OOP\App\DuckExample\Behavior\RocketFly;
-use OOP\App\AnimalExample\Animals\Dog;
 
 class MiniDuckSimulator extends TestCase
 {
