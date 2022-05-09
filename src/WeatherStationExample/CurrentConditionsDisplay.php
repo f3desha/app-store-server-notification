@@ -2,15 +2,16 @@
 
 namespace OOP\App\WeatherStationExample;
 
+use SplObserver;
 use SplSubject;
 
-class CurrentConditionsDisplay implements DisplayElement, \SplObserver
+class CurrentConditionsDisplay implements DisplayElement, SplObserver
 {
     /**
      * @param SplSubject $weatherData
      * @return void
      */
-    public function update(\SplSubject $weatherData): void
+    public function update(SplSubject $weatherData): void
     {
         $this->temperature = $weatherData->getTemperature();
         $this->humidity = $weatherData->getHumidity();
