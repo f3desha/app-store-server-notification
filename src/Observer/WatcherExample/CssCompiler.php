@@ -5,7 +5,7 @@ namespace OOP\App\Observer\WatcherExample;
 use SplObserver;
 use SplSubject;
 
-class CssCompiler implements Compiler, SplObserver
+class CssCompiler implements SplObserver
 {
     /**
      * @var SplSubject
