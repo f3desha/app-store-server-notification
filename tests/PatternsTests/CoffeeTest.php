@@ -22,6 +22,7 @@ class CoffeeTest extends TestCase
         $houseBlend = new Whip(new Mocha(new Soy(new HouseBlend())));
         echo "{$houseBlend->getDescription()} \${$houseBlend->cost()}\n";
 
+        echo "===========================\n";
         $this->assertSame(0, 0);
     }
 }

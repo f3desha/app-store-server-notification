@@ -19,6 +19,7 @@ class GameSpeedTest extends TestCase
         $game->setSpeedStrategy(new FastSpeedMode());
         $game->resumeGame();
 
+        echo "===========================\n";
         $this->assertSame(0, 0);
     }
 }

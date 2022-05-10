@@ -31,6 +31,7 @@ class ShooterGameTest extends TestCase
         $character->setWeapon(new SwordBehavior());
         $character->fight();
 
+        echo "===========================\n";
         $this->assertSame(0, 0);
     }
 }

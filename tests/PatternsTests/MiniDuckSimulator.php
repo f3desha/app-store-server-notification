@@ -33,6 +33,7 @@ class MiniDuckSimulator extends TestCase
         $animal = new Dog();
         $animal->giveAVoice();
 
+        echo "===========================\n";
         $this->assertSame(0, 0);
     }
 }

@@ -27,6 +27,7 @@ class WeatherStationTest extends TestCase
         new HeatIndexDisplay($weatherData);
         $weatherData->setMeasurements(21, 58, 3);
 
+        echo "===========================\n";
         $this->assertSame(0, 0);
     }
 }

@@ -19,7 +19,7 @@ class StoreTest extends TestCase
         $store->removeObserver($backer);
         $store->updateGoods();
 
-
+        echo "===========================\n";
         $this->assertSame(0, 0);
     }
 }

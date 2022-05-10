@@ -19,6 +19,7 @@ class WatcherTest extends TestCase
         $watcher->fileChanged('/var/www/app/frontend/app.js');
         $watcher->fileChanged('/var/www/app/frontend/jquery.js');
 
+        echo "===========================\n";
         $this->assertSame(0, 0);
     }
 }

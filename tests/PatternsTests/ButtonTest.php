@@ -16,6 +16,7 @@ class ButtonTest extends TestCase
 
         $button->press();
 
+        echo "===========================\n";
         $this->assertSame(0, 0);
     }
 }

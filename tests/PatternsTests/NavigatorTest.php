@@ -13,6 +13,7 @@ class NavigatorTest extends TestCase
         $navigator->setRouteStrategy(new PublicTransportStrategy());
         $navigator->performRoute(1, 2);
 
+        echo "===========================\n";
         $this->assertSame(0, 0);
     }
 }
