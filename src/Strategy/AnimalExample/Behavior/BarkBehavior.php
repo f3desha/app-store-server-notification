@@ -7,6 +7,6 @@ class BarkBehavior implements VoiceBehavior
 
     public function makeSound()
     {
-        echo "Gav!";
+        echo "Gav!\n";
     }
 }

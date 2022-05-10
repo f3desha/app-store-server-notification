@@ -7,6 +7,6 @@ class MeowBehavior implements VoiceBehavior
 
     public function makeSound()
     {
-        echo "Meow!";
+        echo "Meow!\n";
     }
 }
