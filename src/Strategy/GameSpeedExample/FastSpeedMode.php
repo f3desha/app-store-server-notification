@@ -8,5 +8,4 @@ class FastSpeedMode implements SpeedMode
     {
         echo "Fast speed\n";
     }
-
 }

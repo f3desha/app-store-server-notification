@@ -2,12 +2,9 @@
 namespace PatternsTests;
 
 use OOP\App\Decorator\CoffeeExample\BeverageSize;
-use OOP\App\Decorator\CoffeeExample\DarkRoast;
 use OOP\App\Decorator\CoffeeExample\Espresso;
-use OOP\App\Decorator\CoffeeExample\HouseBlend;
 use OOP\App\Decorator\CoffeeExample\Mocha;
 use OOP\App\Decorator\CoffeeExample\Soy;
-use OOP\App\Decorator\CoffeeExample\Whip;
 use OOP\App\Observer\StoreExample\Baker;
 use OOP\App\Observer\StoreExample\Butcher;
 use OOP\App\Observer\StoreExample\Store;

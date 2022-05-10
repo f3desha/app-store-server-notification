@@ -8,5 +8,4 @@ class HalfSpeedMode implements SpeedMode
     {
         echo "Half speed\n";
     }
-
 }
