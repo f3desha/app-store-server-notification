@@ -1,5 +1,5 @@
 <?php
-namespace OOP\Tests;
+namespace PatternsTests;
 
 use OOP\App\Strategy\NavigatorExample\Navigator;
 use OOP\App\Strategy\NavigatorExample\Strategies\PublicTransportStrategy;

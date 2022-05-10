@@ -1,5 +1,5 @@
 <?php
-namespace OOP\Tests;
+namespace PatternsTests;
 
 use OOP\App\Strategy\GameSpeedExample\FastSpeedMode;
 use OOP\App\Strategy\GameSpeedExample\FullSpeedMode;

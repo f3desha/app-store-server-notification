@@ -1,5 +1,5 @@
 <?php
-namespace OOP\Tests;
+namespace PatternsTests;
 
 use OOP\App\Observer\StoreExample\Baker;
 use OOP\App\Observer\StoreExample\Butcher;

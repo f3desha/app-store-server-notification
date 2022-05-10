@@ -1,5 +1,5 @@
 <?php
-namespace OOP\Tests;
+namespace PatternsTests;
 
 use OOP\App\Observer\WeatherStationExample\CurrentConditionsDisplay;
 use OOP\App\Observer\WeatherStationExample\ForecastDisplay;

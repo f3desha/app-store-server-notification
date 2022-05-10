@@ -1,5 +1,5 @@
 <?php
-namespace OOP\Tests;
+namespace PatternsTests;
 
 use OOP\App\Strategy\ShooterGameExample\AxeBehavior;
 use OOP\App\Strategy\ShooterGameExample\BowAndArrowBehavior;

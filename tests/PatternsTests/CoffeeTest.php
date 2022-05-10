@@ -1,5 +1,5 @@
 <?php
-namespace OOP\Tests;
+namespace PatternsTests;
 
 use OOP\App\Decorator\CoffeeExample\DarkRoast;
 use OOP\App\Decorator\CoffeeExample\Espresso;

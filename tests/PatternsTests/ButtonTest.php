@@ -1,5 +1,5 @@
 <?php
-namespace OOP\Tests;
+namespace PatternsTests;
 
 use OOP\App\Observer\UIExample\Button;
 use OOP\App\Observer\UIExample\ConsoleInfoListener;

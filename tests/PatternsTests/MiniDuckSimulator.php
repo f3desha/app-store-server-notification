@@ -1,5 +1,5 @@
 <?php
-namespace OOP\Tests;
+namespace PatternsTests;
 
 use OOP\App\Strategy\AnimalExample\Animals\Dog;
 use OOP\App\Strategy\DuckExample\Behavior\RocketFly;
