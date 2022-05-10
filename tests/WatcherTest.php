@@ -12,8 +12,8 @@ class WatcherTest extends TestCase
     {
         $watcher = new Watcher();
 
-        $cssCompiler = new CssCompiler($watcher);
-        $jsCompiler = new JsCompiler($watcher);
+        new CssCompiler($watcher);
+        new JsCompiler($watcher);
 
         $watcher->fileChanged('/var/www/app/frontend/styles.css');
         $watcher->fileChanged('/var/www/app/frontend/app.js');

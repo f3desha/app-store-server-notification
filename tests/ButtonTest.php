@@ -10,7 +10,7 @@ class ButtonTest extends TestCase
     public function testButton()
     {
         $button = new Button();
-        $uploaderListener = new FileUploaderListener($button);
+        new FileUploaderListener($button);
 
         $button->press();
 
