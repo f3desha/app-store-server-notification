@@ -4,6 +4,9 @@ namespace OOP\App\Decorator\CoffeeExample;
 
 abstract class CondimentDecorator extends Beverage
 {
+    /**
+     * @var Beverage
+     */
     protected Beverage $beverage;
 
     /**

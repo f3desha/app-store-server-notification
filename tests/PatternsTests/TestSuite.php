@@ -1,6 +1,7 @@
 <?php
 namespace PatternsTests;
 
+use OOP\App\Decorator\CoffeeExample\BeverageSize;
 use OOP\App\Decorator\CoffeeExample\DarkRoast;
 use OOP\App\Decorator\CoffeeExample\Espresso;
 use OOP\App\Decorator\CoffeeExample\HouseBlend;
@@ -59,16 +60,16 @@ class TestSuite extends TestCase
 
     public function testCoffee()
     {
+
         $espresso = new Espresso();
-        echo "{$espresso->getDescription()} \${$espresso->cost()}\n";
+        $mocha = new Mocha($espresso);
+        $mocha->setBeverageSize(BeverageSize::VENTI);
+        $soy = new Soy($mocha);
+        $soy->setBeverageSize(BeverageSize::VENTI);
 
-        $darkRoast = new Whip(new Mocha(new Mocha(new DarkRoast())));
-        echo "{$darkRoast->getDescription()} \${$darkRoast->cost()}\n";
+        echo "{$soy->getDescription()} \${$soy->cost()}\n";
 
-        $houseBlend = new Whip(new Mocha(new Soy(new HouseBlend())));
-        echo "{$houseBlend->getDescription()} \${$houseBlend->cost()}\n";
-
-        echo "===========================\n";
+        echo "\n===========================\n";
         $this->assertSame(0, 0);
     }
 

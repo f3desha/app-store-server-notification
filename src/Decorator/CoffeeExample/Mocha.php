@@ -6,7 +6,12 @@ class Mocha extends CondimentDecorator
 {
     public function cost(): float
     {
-        return 0.20 + $this->beverage->cost();
+        $price = match ($this->getBeverageSize()) {
+            BeverageSize::TALL => 0.10,
+            BeverageSize::GRANDE => 0.15,
+            BeverageSize::VENTI => 0.20,
+        };
+        return $price + $this->beverage->cost();
     }
 
     public function getDescription(): string
