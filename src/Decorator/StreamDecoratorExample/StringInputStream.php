@@ -2,19 +2,14 @@
 
 namespace OOP\App\Decorator\StreamDecoratorExample;
 
-class FileInputStream extends InputStream
+class StringInputStream extends InputStream
 {
-    /**
-     * @var string
-     */
-    private string $input;
-
     /**
      * @param string $text
      */
     public function __construct(string $text)
     {
-        $this->input = $text;
+        $this->buffer = $text;
     }
 
     /**
@@ -22,6 +17,6 @@ class FileInputStream extends InputStream
      */
     public function read(): string
     {
-        return $this->input;
+        return $this->buffer;
     }
 }

@@ -8,6 +8,7 @@ use OOP\App\Decorator\CoffeeExample\Soy;
 use OOP\App\Decorator\DressExample\KnifeDecorator;
 use OOP\App\Decorator\DressExample\SweaterDecorator;
 use OOP\App\Decorator\StreamDecoratorExample\FileInputStream;
+use OOP\App\Decorator\StreamDecoratorExample\StringInputStream;
 use OOP\App\Decorator\StreamDecoratorExample\FuckingWordInputStream;
 use OOP\App\Decorator\StreamDecoratorExample\LowerCaseInputStream;
 use OOP\App\Decorator\StreamDecoratorExample\UpperCaseInputStream;
@@ -49,12 +50,15 @@ use PHPUnit\Framework\TestCase;
 
 class TestSuite extends TestCase
 {
-
     public function testStream()
     {
-        $input = new FuckingWordInputStream(new FileInputStream('Some HUGE Text'));
-
+        $input = new UpperCaseInputStream(new FuckingWordInputStream(
+            new FileInputStream(__DIR__ . '\SampleTextFile.txt')
+        ));
         echo $input->read();
+        echo "\n";
+        $stringInput = new LowerCaseInputStream(new FuckingWordInputStream(new StringInputStream('Huge Text')));
+        echo $stringInput->read();
         echo "\n===========================\n";
         $this->assertSame(0, 0);
     }
@@ -81,7 +85,6 @@ class TestSuite extends TestCase
 
     public function testCoffee()
     {
-
         $espresso = new Espresso();
         $mocha = new Mocha($espresso);
         $mocha->setBeverageSize(BeverageSize::VENTI);
