@@ -5,14 +5,14 @@ namespace OOP\App\Mix\SampleOne;
 class Reader
 {
     /**
-     * @var ReaderBehavior
+     * @var ReaderStrategy
      */
-    private ReaderBehavior $readerBehavior;
+    private ReaderStrategy $readerBehavior;
 
     /**
-     * @param ReaderBehavior $readerBehavior
+     * @param ReaderStrategy $readerBehavior
      */
-    public function __construct(ReaderBehavior $readerBehavior)
+    public function __construct(ReaderStrategy $readerBehavior)
     {
         $this->readerBehavior = $readerBehavior;
     }

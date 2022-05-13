@@ -2,7 +2,7 @@
 
 namespace OOP\App\Mix\SampleOne;
 
-interface ReaderBehavior
+interface ReaderStrategy
 {
     public function read(): string;
 }

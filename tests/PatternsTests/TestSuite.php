@@ -10,10 +10,10 @@ use OOP\App\Decorator\DressExample\SweaterDecorator;
 use OOP\App\Mix\SampleOne\FuckingWordInputStream;
 use OOP\App\Mix\SampleOne\LowerCaseInputStream;
 use OOP\App\Mix\SampleOne\Reader;
-use OOP\App\Mix\SampleOne\SimpleTextReader;
+use OOP\App\Mix\SampleOne\SimpleTextReaderStrategy;
 use OOP\App\Mix\SampleOne\StringInputStream;
 use OOP\App\Mix\SampleOne\UpperCaseInputStream;
-use OOP\App\Mix\SampleOne\ZipReader;
+use OOP\App\Mix\SampleOne\ZipReaderStrategy;
 use OOP\App\Observer\StoreExample\Baker;
 use OOP\App\Observer\StoreExample\Butcher;
 use OOP\App\Observer\StoreExample\Store;
@@ -54,19 +54,15 @@ class TestSuite extends TestCase
 {
     public function testSampleOne()
     {
-        //Reader part
         $ext = rand(0, 1) ? 'txt' : 'zip';
-
-        //Factory defines a reader
-        $readerInstance = match ($ext) {
-            'txt' => new SimpleTextReader(__DIR__ . '\SampleTextFile.txt'),
-            'zip' =>  new ZipReader(__DIR__ . '\ZippedText.zip'),
+        $readerStrategy = match ($ext) {
+            'txt' => new SimpleTextReaderStrategy(__DIR__ . '\SampleTextFile.txt'),
+            'zip' =>  new ZipReaderStrategy(__DIR__ . '\ZippedText.zip'),
         };
 
-        $reader = new Reader($readerInstance);
+        $reader = new Reader($readerStrategy);
         $text = $reader->performRead();
 
-        //Transformer part
         $stream = new UpperCaseInputStream(new FuckingWordInputStream(new StringInputStream($text)));
         $transformed = $stream->read();
         echo $transformed . "\n";

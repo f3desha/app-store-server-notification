@@ -4,7 +4,7 @@ namespace OOP\App\Mix\SampleOne;
 
 use ZipArchive;
 
-class ZipReader implements ReaderBehavior
+class ZipReaderStrategy implements ReaderStrategy
 {
     /**
      * @var string

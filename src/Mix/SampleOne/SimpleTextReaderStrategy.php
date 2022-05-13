@@ -2,7 +2,7 @@
 
 namespace OOP\App\Mix\SampleOne;
 
-class SimpleTextReader implements ReaderBehavior
+class SimpleTextReaderStrategy implements ReaderStrategy
 {
     /**
      * @var string
