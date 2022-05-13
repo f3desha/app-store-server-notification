@@ -17,12 +17,12 @@ class IOManipulator
     /**
      * @param Reader $readerBehavior
      */
-    public function setReaderStrategy(Reader $readerBehavior)
+    public function setReaderStrategy(Reader $readerBehavior): void
     {
         $this->readerBehavior = $readerBehavior;
     }
 
-    public function setWriterStrategy(Writer $writerBehavior)
+    public function setWriterStrategy(Writer $writerBehavior): void
     {
         $this->writerBehavior = $writerBehavior;
     }
@@ -38,10 +38,8 @@ class IOManipulator
     /**
      * @return void
      */
-    public function performWrite(string $text)
+    public function performWrite(): void
     {
         $this->writerBehavior->write();
     }
-
-
 }
