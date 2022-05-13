@@ -60,6 +60,9 @@ class TestSuite extends TestCase
     {
         $pizzaStore = new PizzaStore(new SimplePizzaFactory());
         $pizzaStore->orderPizza('cheese');
+        $pizzaStore->orderPizza('veggie');
+        $pizzaStore->orderPizza('clam');
+        $pizzaStore->orderPizza('pepperoni');
 
         echo "\n===========================\n";
         $this->assertSame(0, 0);

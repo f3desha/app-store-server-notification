@@ -22,7 +22,7 @@ abstract class Pizza
      */
     public function prepare(): void
     {
-        echo "Preparing pizza...\n";
+        echo "Standard process of preparing pizza...\n";
     }
 
     /**
@@ -30,7 +30,7 @@ abstract class Pizza
      */
     public function bake(): void
     {
-        echo "Baking pizza...\n";
+        echo "Standard process of baking pizza...\n";
     }
 
     /**
@@ -38,7 +38,7 @@ abstract class Pizza
      */
     public function cut(): void
     {
-        echo "Cutting pizza...\n";
+        echo "Standard process of cutting pizza...\n";
     }
 
     /**
@@ -46,6 +46,6 @@ abstract class Pizza
      */
     public function box(): void
     {
-        echo "Boxing pizza...\n";
+        echo "Standard process of boxing pizza...\n";
     }
 }

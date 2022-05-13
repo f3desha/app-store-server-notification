@@ -12,6 +12,9 @@ class SimplePizzaFactory
     {
         return match ($type) {
             'cheese' => new CheesePizza(),
+            'veggie' => new VeggiePizza(),
+            'clam' => new ClamPizza(),
+            'pepperoni' => new PepperoniPizza()
         };
     }
 }
