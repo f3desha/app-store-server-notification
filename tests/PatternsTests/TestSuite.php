@@ -7,6 +7,8 @@ use OOP\App\Decorator\CoffeeExample\Mocha;
 use OOP\App\Decorator\CoffeeExample\Soy;
 use OOP\App\Decorator\DressExample\KnifeDecorator;
 use OOP\App\Decorator\DressExample\SweaterDecorator;
+use OOP\App\Mix\SampleOne\FuckingWordInputStream;
+use OOP\App\Mix\SampleOne\LowerCaseInputStream;
 use OOP\App\Mix\SampleOne\Reader;
 use OOP\App\Mix\SampleOne\SimpleTextReader;
 use OOP\App\Mix\SampleOne\StringInputStream;
@@ -53,17 +55,13 @@ class TestSuite extends TestCase
     public function testSampleOne()
     {
         //Reader part
-        $extension = 'zip';
-        $readerInstance = null;
+        $ext = rand(0, 1) ? 'txt' : 'zip';
+
         //Factory defines a reader
-        switch ($extension) {
-            case "txt":
-                $readerInstance = new SimpleTextReader(__DIR__ . '\SampleTextFile.txt');
-                break;
-            case "zip":
-                $readerInstance = new ZipReader(__DIR__ . '\ZippedText.zip');
-                break;
-        }
+        $readerInstance = match ($ext) {
+            'txt' => new SimpleTextReader(__DIR__ . '\SampleTextFile.txt'),
+            'zip' =>  new ZipReader(__DIR__ . '\ZippedText.zip'),
+        };
 
         $reader = new Reader($readerInstance);
         $text = $reader->performRead();
@@ -79,13 +77,13 @@ class TestSuite extends TestCase
 
     public function testStream()
     {
-//        $input = new UpperCaseInputStream(new FuckingWordInputStream(
-//            new FileInputStream(__DIR__ . '\SampleTextFile.txt')
-//        ));
-//        echo $input->read();
-//        echo "\n";
-//        $stringInput = new LowerCaseInputStream(new FuckingWordInputStream(new StringInputStream('Huge Text')));
-//        echo $stringInput->read();
+        $input = new UpperCaseInputStream(new FuckingWordInputStream(
+            new StringInputStream('Good Game')
+        ));
+        echo $input->read();
+        echo "\n";
+        $stringInput = new LowerCaseInputStream(new FuckingWordInputStream(new StringInputStream('Huge Text')));
+        echo $stringInput->read();
         echo "\n===========================\n";
         $this->assertSame(0, 0);
     }
