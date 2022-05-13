@@ -5,6 +5,8 @@ use OOP\App\Decorator\CoffeeExample\BeverageSize;
 use OOP\App\Decorator\CoffeeExample\Espresso;
 use OOP\App\Decorator\CoffeeExample\Mocha;
 use OOP\App\Decorator\CoffeeExample\Soy;
+use OOP\App\Decorator\DressExample\KnifeDecorator;
+use OOP\App\Decorator\DressExample\SweaterDecorator;
 use OOP\App\Observer\StoreExample\Baker;
 use OOP\App\Observer\StoreExample\Butcher;
 use OOP\App\Observer\StoreExample\Store;
@@ -43,6 +45,15 @@ use PHPUnit\Framework\TestCase;
 
 class TestSuite extends TestCase
 {
+
+    public function testClothes()
+    {
+        $character = new KnifeDecorator(new SweaterDecorator(new \OOP\App\Decorator\DressExample\King()));
+        echo $character->getDescription();
+        echo "\n===========================\n";
+        $this->assertSame(0, 0);
+    }
+
     public function testButton()
     {
         $button = new Button();
