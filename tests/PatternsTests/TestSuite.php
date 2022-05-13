@@ -9,11 +9,13 @@ use OOP\App\Decorator\DressExample\KnifeDecorator;
 use OOP\App\Decorator\DressExample\SweaterDecorator;
 use OOP\App\Mix\SampleOne\FuckingWordInputStream;
 use OOP\App\Mix\SampleOne\LowerCaseInputStream;
-use OOP\App\Mix\SampleOne\Reader;
-use OOP\App\Mix\SampleOne\SimpleTextReaderStrategy;
+use OOP\App\Mix\SampleOne\IOManipulator;
+use OOP\App\Mix\SampleOne\MySQLWriter;
+use OOP\App\Mix\SampleOne\SimpleFileWriter;
+use OOP\App\Mix\SampleOne\SimpleTextReader;
 use OOP\App\Mix\SampleOne\StringInputStream;
 use OOP\App\Mix\SampleOne\UpperCaseInputStream;
-use OOP\App\Mix\SampleOne\ZipReaderStrategy;
+use OOP\App\Mix\SampleOne\ZipReader;
 use OOP\App\Observer\StoreExample\Baker;
 use OOP\App\Observer\StoreExample\Butcher;
 use OOP\App\Observer\StoreExample\Store;
@@ -56,16 +58,26 @@ class TestSuite extends TestCase
     {
         $ext = rand(0, 1) ? 'txt' : 'zip';
         $readerStrategy = match ($ext) {
-            'txt' => new SimpleTextReaderStrategy(__DIR__ . '\SampleTextFile.txt'),
-            'zip' =>  new ZipReaderStrategy(__DIR__ . '\ZippedText.zip'),
+            'txt' => new SimpleTextReader(__DIR__ . '\SampleTextFile.txt'),
+            'zip' =>  new ZipReader(__DIR__ . '\ZippedText.zip'),
         };
 
-        $reader = new Reader($readerStrategy);
-        $text = $reader->performRead();
+        $ioManipulator = new IOManipulator();
+        $ioManipulator->setReaderStrategy($readerStrategy);
+        $text = $ioManipulator->performRead();
 
-        $stream = new UpperCaseInputStream(new FuckingWordInputStream(new StringInputStream($text)));
+        $stream = new StringInputStream($text);
         $transformed = $stream->read();
         echo $transformed . "\n";
+
+        $ext = rand(0, 1) ? 'file' : 'mysql';
+        $writerStrategy = match ($ext) {
+            'file' => new SimpleFileWriter($transformed, 'path'),
+            'mysql' =>  new MySQLWriter($transformed, 'database', 'tableName', 'field'),
+        };
+
+        $ioManipulator->setWriterStrategy($writerStrategy);
+        $ioManipulator->performWrite($transformed);
 
         echo "\n===========================\n";
         $this->assertSame(0, 0);
