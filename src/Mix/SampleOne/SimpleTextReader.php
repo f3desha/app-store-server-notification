@@ -16,7 +16,6 @@ class SimpleTextReader implements ReaderBehavior
 
     public function read(): string
     {
-        $text = file_get_contents($this->simpleTextFilePath);
-        return $text;
+        return file_get_contents($this->simpleTextFilePath);
     }
 }

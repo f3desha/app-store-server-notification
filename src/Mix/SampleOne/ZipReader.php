@@ -2,6 +2,8 @@
 
 namespace OOP\App\Mix\SampleOne;
 
+use ZipArchive;
+
 class ZipReader implements ReaderBehavior
 {
     /**
@@ -16,9 +18,9 @@ class ZipReader implements ReaderBehavior
 
     public function read(): string
     {
-        $zip = new \ZipArchive();
+        $zip = new ZipArchive();
         if ($zip->open($this->zipFilePath) === true) {
-            $result = $zip->extractTo(__DIR__);
+            $zip->extractTo(__DIR__);
             $zip->close();
             echo "Unzipped Process Successful!\n";
         } else {

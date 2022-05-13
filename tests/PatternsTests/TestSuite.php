@@ -67,7 +67,7 @@ class TestSuite extends TestCase
         $text = $reader->performRead();
 
         //Transformer part
-        $stream = new UpperCaseInputStream(new StringInputStream($text));
+        $stream = new UpperCaseInputStream(new FuckingWordInputStream(new StringInputStream($text)));
         $transformed = $stream->read();
         echo $transformed . "\n";
 
