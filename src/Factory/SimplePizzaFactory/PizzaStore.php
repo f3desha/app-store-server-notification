@@ -17,6 +17,10 @@ class PizzaStore
         $this->pizzaFactory = $pizzaFactory;
     }
 
+    /**
+     * @param string $type
+     * @return void
+     */
     public function orderPizza(string $type): void
     {
         $pizza = $this->pizzaFactory->create($type);
