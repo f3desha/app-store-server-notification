@@ -10,8 +10,7 @@ class FileInputStream extends InputStream
     public function __construct(string $fileName)
     {
         //read file and get content
-        $content = file_get_contents($fileName);
-        $this->buffer = $content;
+        $this->buffer = file_get_contents($fileName);
     }
 
     /**
