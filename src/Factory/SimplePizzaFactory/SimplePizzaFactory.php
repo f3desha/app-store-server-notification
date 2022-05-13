@@ -11,10 +11,11 @@ class SimplePizzaFactory
     public function create(string $type): Pizza
     {
         return match ($type) {
-            'cheese' => new CheesePizza(),
-            'veggie' => new VeggiePizza(),
-            'clam' => new ClamPizza(),
-            'pepperoni' => new PepperoniPizza()
+            'cheese'        => new CheesePizza(),
+            'veggie'        => new VeggiePizza(),
+            'clam'          => new ClamPizza(),
+            'pepperoni'     => new PepperoniPizza(),
+            default         => throw new \Error("Pizza not found..."),
         };
     }
 }
