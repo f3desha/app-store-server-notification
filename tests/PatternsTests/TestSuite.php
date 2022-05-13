@@ -77,7 +77,7 @@ class TestSuite extends TestCase
         };
 
         $ioManipulator->setWriterStrategy($writerStrategy);
-        $ioManipulator->performWrite($transformed);
+        $ioManipulator->performWrite();
 
         echo "\n===========================\n";
         $this->assertSame(0, 0);
