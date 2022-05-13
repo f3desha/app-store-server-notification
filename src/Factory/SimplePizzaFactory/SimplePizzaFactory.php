@@ -2,6 +2,8 @@
 
 namespace OOP\App\Factory\SimplePizzaFactory;
 
+use Error;
+
 class SimplePizzaFactory
 {
     /**
@@ -15,7 +17,7 @@ class SimplePizzaFactory
             'veggie'        => new VeggiePizza(),
             'clam'          => new ClamPizza(),
             'pepperoni'     => new PepperoniPizza(),
-            default         => throw new \Error("Pizza not found..."),
+            default         => throw new Error("Pizza not found..."),
         };
     }
 }
