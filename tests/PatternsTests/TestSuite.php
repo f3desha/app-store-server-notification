@@ -7,6 +7,8 @@ use OOP\App\Decorator\CoffeeExample\Mocha;
 use OOP\App\Decorator\CoffeeExample\Soy;
 use OOP\App\Decorator\DressExample\KnifeDecorator;
 use OOP\App\Decorator\DressExample\SweaterDecorator;
+use OOP\App\Factory\SimplePizzaFactory\PizzaStore;
+use OOP\App\Factory\SimplePizzaFactory\SimplePizzaFactory;
 use OOP\App\Mix\SampleOne\FuckingWordInputStream;
 use OOP\App\Mix\SampleOne\LowerCaseInputStream;
 use OOP\App\Mix\SampleOne\IOManipulator;
@@ -54,6 +56,15 @@ use PHPUnit\Framework\TestCase;
 
 class TestSuite extends TestCase
 {
+    public function testPizzaFactory()
+    {
+        $pizzaStore = new PizzaStore(new SimplePizzaFactory());
+        $pizzaStore->orderPizza('cheese');
+
+        echo "\n===========================\n";
+        $this->assertSame(0, 0);
+    }
+
     public function testSampleOne()
     {
         $ext = rand(0, 1) ? 'txt' : 'zip';
