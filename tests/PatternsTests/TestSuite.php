@@ -7,11 +7,13 @@ use OOP\App\Decorator\CoffeeExample\Mocha;
 use OOP\App\Decorator\CoffeeExample\Soy;
 use OOP\App\Decorator\DressExample\KnifeDecorator;
 use OOP\App\Decorator\DressExample\SweaterDecorator;
-use OOP\App\Decorator\StreamDecoratorExample\FileInputStream;
-use OOP\App\Decorator\StreamDecoratorExample\StringInputStream;
-use OOP\App\Decorator\StreamDecoratorExample\FuckingWordInputStream;
-use OOP\App\Decorator\StreamDecoratorExample\LowerCaseInputStream;
-use OOP\App\Decorator\StreamDecoratorExample\UpperCaseInputStream;
+use OOP\App\Mix\SampleOne\FileInputStream;
+use OOP\App\Mix\SampleOne\FuckingWordInputStream;
+use OOP\App\Mix\SampleOne\LowerCaseInputStream;
+use OOP\App\Mix\SampleOne\Reader;
+use OOP\App\Mix\SampleOne\StringInputStream;
+use OOP\App\Mix\SampleOne\UpperCaseInputStream;
+use OOP\App\Mix\SampleOne\ZipReader;
 use OOP\App\Observer\StoreExample\Baker;
 use OOP\App\Observer\StoreExample\Butcher;
 use OOP\App\Observer\StoreExample\Store;
@@ -50,6 +52,21 @@ use PHPUnit\Framework\TestCase;
 
 class TestSuite extends TestCase
 {
+    public function testSampleOne()
+    {
+        //Reader part
+        $reader = new Reader(new ZipReader(__DIR__ . '\ZippedText.zip'));
+        $text = $reader->performRead();
+
+        //Transformer part
+        $stream = new UpperCaseInputStream(new StringInputStream($text));
+        $transformed = $stream->read();
+        echo $transformed . "\n";
+
+        echo "\n===========================\n";
+        $this->assertSame(0, 0);
+    }
+
     public function testStream()
     {
         $input = new UpperCaseInputStream(new FuckingWordInputStream(

@@ -1,8 +1,8 @@
 <?php
 
-namespace OOP\App\Decorator\StreamDecoratorExample;
+namespace OOP\App\Mix\SampleOne;
 
-class UpperCaseInputStream extends FilterInputStream
+class FuckingWordInputStream extends FilterInputStream
 {
     /**
      * @var InputStream
@@ -22,6 +22,7 @@ class UpperCaseInputStream extends FilterInputStream
      */
     public function read(): string
     {
-        return strtoupper($this->inputStream->read());
+        $words = explode(' ', $this->inputStream->read());
+        return implode(' fucking ', $words);
     }
 }

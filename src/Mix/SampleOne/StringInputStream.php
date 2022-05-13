@@ -1,6 +1,6 @@
 <?php
 
-namespace OOP\App\Decorator\StreamDecoratorExample;
+namespace OOP\App\Mix\SampleOne;
 
 class StringInputStream extends InputStream
 {
