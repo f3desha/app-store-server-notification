@@ -7,6 +7,8 @@ use OOP\App\Decorator\CoffeeExample\Mocha;
 use OOP\App\Decorator\CoffeeExample\Soy;
 use OOP\App\Decorator\DressExample\KnifeDecorator;
 use OOP\App\Decorator\DressExample\SweaterDecorator;
+use OOP\App\Factory\RegionalPizzaFactory\ChicagoStylePizzaStore;
+use OOP\App\Factory\RegionalPizzaFactory\NYStylePizzaStore;
 use OOP\App\Factory\SimplePizzaFactory\PizzaStore;
 use OOP\App\Factory\SimplePizzaFactory\SimplePizzaFactory;
 use OOP\App\Mix\SampleOne\FuckingWordInputStream;
@@ -56,6 +58,23 @@ use PHPUnit\Framework\TestCase;
 
 class TestSuite extends TestCase
 {
+    public function testRegionalPizzaFactory()
+    {
+        $nyStore = new NYStylePizzaStore();
+        $chicagoStore = new ChicagoStylePizzaStore();
+
+        $pizza = $nyStore->orderPizza('cheese');
+        echo "Ethan ordered a {$pizza->getName()} \n";
+
+        echo "\n===========================\n";
+
+        $pizza = $chicagoStore->orderPizza('cheese');
+        echo "Joel ordered a {$pizza->getName()} \n";
+
+        echo "\n===========================\n";
+        $this->assertSame(0, 0);
+    }
+
     public function testPizzaFactory()
     {
         $pizzaStore = new PizzaStore(new SimplePizzaFactory());
