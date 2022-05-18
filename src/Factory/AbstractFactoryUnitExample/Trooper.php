@@ -3,6 +3,7 @@
 namespace OOP\App\Factory\AbstractFactoryUnitExample;
 
 use OOP\App\Factory\AbstractFactoryUnitExample\Amunition\Armor;
+use OOP\App\Factory\AbstractFactoryUnitExample\Amunition\TrooperAmunitionFactory;
 use OOP\App\Factory\AbstractFactoryUnitExample\Amunition\Weapon;
 
 abstract class Trooper
@@ -12,6 +13,16 @@ abstract class Trooper
     protected Armor $armor;
 
     protected string $name;
+
+    protected TrooperAmunitionFactory $trooperAmunitionFactory;
+
+    /**
+     * @param TrooperAmunitionFactory $trooperAmunitionFactory
+     */
+    public function __construct(TrooperAmunitionFactory $trooperAmunitionFactory)
+    {
+        $this->trooperAmunitionFactory = $trooperAmunitionFactory;
+    }
 
     abstract public function getClothes(): void;
 
