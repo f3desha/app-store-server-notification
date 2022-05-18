@@ -1,6 +1,8 @@
 <?php
 
-namespace OOP\App\Factory\RegionalPizzaFactory;
+namespace OOP\App\Factory\AbstractFactoryExample;
+
+use OOP\App\Factory\AbstractFactoryExample\Pizzas\Pizza;
 
 abstract class PizzaStore
 {
