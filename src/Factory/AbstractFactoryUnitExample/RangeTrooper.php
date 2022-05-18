@@ -2,8 +2,6 @@
 
 namespace OOP\App\Factory\AbstractFactoryUnitExample;
 
-use OOP\App\Factory\AbstractFactoryUnitExample\Amunition\TrooperAmunitionFactory;
-
 class RangeTrooper extends Trooper
 {
 
