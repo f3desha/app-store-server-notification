@@ -9,6 +9,9 @@ use OOP\App\Decorator\DressExample\KnifeDecorator;
 use OOP\App\Decorator\DressExample\SweaterDecorator;
 use OOP\App\Factory\AbstractFactoryExample\ChicagoPizzaStore;
 use OOP\App\Factory\AbstractFactoryExample\NYPizzaStore;
+use OOP\App\Factory\FactoryMethodExample\AtreidesBarack;
+use OOP\App\Factory\FactoryMethodExample\FreemanBarack;
+use OOP\App\Factory\FactoryMethodExample\HarkonenBarack;
 use OOP\App\Factory\SimplePizzaFactory\PizzaStore;
 use OOP\App\Factory\SimplePizzaFactory\SimplePizzaFactory;
 use OOP\App\Mix\SampleOne\FuckingWordInputStream;
@@ -59,6 +62,19 @@ use PHPUnit\Framework\TestCase;
 class TestSuite extends TestCase
 {
 
+    public function testDune()
+    {
+        $playerOneBarack = new FreemanBarack();
+        $trooper1 = $playerOneBarack->orderTrooper('range');
+
+        $playerTwoBarack = new AtreidesBarack();
+        $trooper2 = $playerTwoBarack->orderTrooper('melee');
+
+        $trooper1->showStats();
+        $trooper2->showStats();
+        echo "\n===========================\n";
+        $this->assertSame(0, 0);
+    }
 
     public function testRegionalPizzaFactory()
     {
