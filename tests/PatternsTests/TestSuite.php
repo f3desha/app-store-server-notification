@@ -7,6 +7,9 @@ use OOP\App\Decorator\CoffeeExample\Mocha;
 use OOP\App\Decorator\CoffeeExample\Soy;
 use OOP\App\Decorator\DressExample\KnifeDecorator;
 use OOP\App\Decorator\DressExample\SweaterDecorator;
+use OOP\App\Factory\AbstractCarFactory\BerlinBMWStore;
+use OOP\App\Factory\AbstractCarFactory\NYBMWStore;
+use OOP\App\Factory\AbstractCarFactory\StoreDispatcher;
 use OOP\App\Factory\AbstractFactoryExample\ChicagoPizzaStore;
 use OOP\App\Factory\AbstractFactoryExample\NYPizzaStore;
 use OOP\App\Factory\AbstractFactoryUnitExample\AtreidesBaracks;
@@ -62,6 +65,17 @@ use PHPUnit\Framework\TestCase;
 
 class TestSuite extends TestCase
 {
+
+    public function testCarAssembly()
+    {
+        $dispatcher = new StoreDispatcher();
+        $store = $dispatcher->create('Berlin');
+        $car = $store->orderCar('c300');
+        var_dump($car);
+
+        echo "\n===========================\n";
+        $this->assertSame(0, 0);
+    }
 
     public function testDuneSecond()
     {
