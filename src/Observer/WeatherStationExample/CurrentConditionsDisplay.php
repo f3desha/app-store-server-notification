@@ -8,26 +8,13 @@ use SplSubject;
 class CurrentConditionsDisplay implements DisplayElement, SplObserver
 {
     /**
-     * @param SplSubject $weatherData
-     * @return void
-     */
-    public function update(SplSubject $weatherData): void
-    {
-        $this->temperature = $weatherData->getTemperature();
-        $this->humidity = $weatherData->getHumidity();
-        $this->display();
-    }
-
-    /**
      * @var SplSubject
      */
     private SplSubject $weatherData;
-
     /**
      * @var float
      */
     private float $temperature;
-
     /**
      * @var float
      */
@@ -40,6 +27,17 @@ class CurrentConditionsDisplay implements DisplayElement, SplObserver
     {
         $this->weatherData = $weatherData;
         $this->weatherData->attach($this);
+    }
+
+    /**
+     * @param SplSubject $weatherData
+     * @return void
+     */
+    public function update(SplSubject $weatherData): void
+    {
+        $this->temperature = $weatherData->getTemperature();
+        $this->humidity = $weatherData->getHumidity();
+        $this->display();
     }
 
     public function display(): void

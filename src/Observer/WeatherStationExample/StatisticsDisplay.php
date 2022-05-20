@@ -26,11 +26,6 @@ class StatisticsDisplay implements DisplayElement, SplObserver
         $this->weatherData->attach($this);
     }
 
-    public function display(): void
-    {
-        echo "Avg temperature = {$this->temperature}\n";
-    }
-
     /**
      * @param SplSubject $subject
      * @return void
@@ -39,5 +34,10 @@ class StatisticsDisplay implements DisplayElement, SplObserver
     {
         $this->temperature = $subject->getTemperature();
         $this->display();
+    }
+
+    public function display(): void
+    {
+        echo "Avg temperature = {$this->temperature}\n";
     }
 }

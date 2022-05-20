@@ -2,6 +2,8 @@
 
 namespace OOP\App\Factory\AbstractCarFactory;
 
+use Error;
+
 class BerlinBMWStore extends CarStore
 {
     public function createCar(string $name): Car
@@ -14,7 +16,7 @@ class BerlinBMWStore extends CarStore
                 $car->setName('BMW C300');
                 break;
             default:
-                throw new \Error('Not found...');
+                throw new Error('Not found...');
         }
         return $car;
     }

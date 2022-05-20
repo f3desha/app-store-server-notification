@@ -2,6 +2,7 @@
 
 namespace OOP\App\Factory\AbstractFactoryExample;
 
+use Error;
 use OOP\App\Factory\AbstractFactoryExample\Ingredients\NYPizzaIngredientFactory;
 use OOP\App\Factory\AbstractFactoryExample\Pizzas\CheesePizza;
 use OOP\App\Factory\AbstractFactoryExample\Pizzas\ClamPizza;
@@ -27,7 +28,7 @@ class NYPizzaStore extends PizzaStore
                 $pizza->setName('New York Style Clam Pizza');
                 break;
             default:
-                throw new \Error('Not found...');
+                throw new Error('Not found...');
         }
         return $pizza;
     }

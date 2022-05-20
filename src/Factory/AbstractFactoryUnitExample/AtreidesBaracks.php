@@ -2,6 +2,7 @@
 
 namespace OOP\App\Factory\AbstractFactoryUnitExample;
 
+use Error;
 use OOP\App\Factory\AbstractFactoryUnitExample\Amunition\AtreidesAmunitionFactory;
 
 class AtreidesBaracks extends Baracks
@@ -20,7 +21,7 @@ class AtreidesBaracks extends Baracks
                 $trooper->setName('Atreides Range Trooper');
                 break;
             default:
-                throw new \Error('Not found...');
+                throw new Error('Not found...');
         }
         return $trooper;
     }

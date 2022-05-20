@@ -22,6 +22,7 @@ class ForecastDisplay implements DisplayElement, SplObserver
      */
 
     private float $humidity;
+
     /**
      * @param SplSubject $weatherData
      */

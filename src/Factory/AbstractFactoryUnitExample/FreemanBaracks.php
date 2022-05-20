@@ -2,6 +2,7 @@
 
 namespace OOP\App\Factory\AbstractFactoryUnitExample;
 
+use Error;
 use OOP\App\Factory\AbstractFactoryUnitExample\Amunition\FreemanAmunitionFactory;
 
 class FreemanBaracks extends Baracks
@@ -20,7 +21,7 @@ class FreemanBaracks extends Baracks
                 $trooper->setName('Freeman Range Trooper');
                 break;
             default:
-                throw new \Error('Not found');
+                throw new Error('Not found');
         }
         return $trooper;
     }

@@ -21,17 +21,16 @@ class CssCompiler implements SplObserver
         $this->watcher->attach($this);
     }
 
-
-    public function compile(): void
-    {
-        echo "css compile\n";
-    }
-
     public function update(SplSubject $subject): void
     {
         $file = $subject->getFileChanged();
         if ($file['type'] === 'css') {
             $this->compile();
         }
+    }
+
+    public function compile(): void
+    {
+        echo "css compile\n";
     }
 }

@@ -29,5 +29,4 @@ abstract class Trooper
     {
         echo "$this->name: Damage is $this->damage, HitPoints is $this->hitPoints\n";
     }
-
 }

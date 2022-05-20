@@ -34,19 +34,19 @@ class Button implements SplSubject
     /**
      * @return void
      */
-    public function notify(): void
+    public function press(): void
     {
-        foreach ($this->listeners as $listener) {
-            $listener->update($this);
-        }
+        echo "Button pressed\n";
+        $this->notify();
     }
 
     /**
      * @return void
      */
-    public function press(): void
+    public function notify(): void
     {
-        echo "Button pressed\n";
-        $this->notify();
+        foreach ($this->listeners as $listener) {
+            $listener->update($this);
+        }
     }
 }

@@ -2,6 +2,8 @@
 
 namespace OOP\App\Factory\FactoryMethodExample;
 
+use Error;
+
 class HarkonenBarack extends Barack
 {
     protected function createTrooper(string $type): Trooper
@@ -9,7 +11,7 @@ class HarkonenBarack extends Barack
         return match ($type) {
             'melee' => new HarkonenMeleeTrooper(),
             'range' => new HarkonenRangeTrooper(),
-            default => throw new \Error('Not found...')
+            default => throw new Error('Not found...')
         };
     }
 }

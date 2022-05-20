@@ -41,16 +41,6 @@ class Watcher implements SplSubject
     }
 
     /**
-     * @return void
-     */
-    public function notify(): void
-    {
-        foreach ($this->observers as $observer) {
-            $observer->update($this);
-        }
-    }
-
-    /**
      * @return array
      */
     public function getFileChanged(): array
@@ -71,5 +61,15 @@ class Watcher implements SplSubject
         ];
 
         $this->notify();
+    }
+
+    /**
+     * @return void
+     */
+    public function notify(): void
+    {
+        foreach ($this->observers as $observer) {
+            $observer->update($this);
+        }
     }
 }

@@ -21,17 +21,16 @@ class JsCompiler implements SplObserver
         $this->watcher->attach($this);
     }
 
-
-    public function compile(): void
-    {
-        echo "js compile\n";
-    }
-
     public function update(SplSubject $subject): void
     {
         $file = $subject->getFileChanged();
         if ($file['type'] === 'js') {
             $this->compile();
         }
+    }
+
+    public function compile(): void
+    {
+        echo "js compile\n";
     }
 }

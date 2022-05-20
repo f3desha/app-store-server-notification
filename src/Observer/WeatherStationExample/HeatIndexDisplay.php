@@ -2,13 +2,16 @@
 
 namespace OOP\App\Observer\WeatherStationExample;
 
-class HeatIndexDisplay implements DisplayElement, \SplObserver
+use SplObserver;
+use SplSubject;
+
+class HeatIndexDisplay implements DisplayElement, SplObserver
 {
 
     /**
-     * @var \SplSubject
+     * @var SplSubject
      */
-    private \SplSubject $weatherData;
+    private SplSubject $weatherData;
 
     /**
      * @var float
@@ -21,12 +24,24 @@ class HeatIndexDisplay implements DisplayElement, \SplObserver
     private float $humidity;
 
     /**
-     * @param \SplSubject $weatherData
+     * @param SplSubject $weatherData
      */
-    public function __construct(\SplSubject $weatherData)
+    public function __construct(SplSubject $weatherData)
     {
         $this->weatherData = $weatherData;
         $this->weatherData->attach($this);
+    }
+
+    public function update(SplSubject $weatherData): void
+    {
+        $this->temperature = $weatherData->getTemperature();
+        $this->humidity = $weatherData->getHumidity();
+        $this->display();
+    }
+
+    public function display(): void
+    {
+        echo "Heat index is {$this->computeHeatIndex($this->temperature, $this->humidity)}\n";
     }
 
     private function computeHeatIndex(float $t, float $rh): float
@@ -39,17 +54,5 @@ class HeatIndexDisplay implements DisplayElement, \SplObserver
                 (0.000000197483 * ($t * $rh * $rh * $rh)) - (0.0000000218429 * ($t * $t * $t * $rh * $rh)) +
                 0.000000000843296 * ($t * $t * $rh * $rh * $rh)) -
             (0.0000000000481975 * ($t * $t * $t * $rh * $rh * $rh)));
-    }
-
-    public function display(): void
-    {
-        echo "Heat index is {$this->computeHeatIndex($this->temperature, $this->humidity)}\n";
-    }
-
-    public function update(\SplSubject $weatherData): void
-    {
-        $this->temperature = $weatherData->getTemperature();
-        $this->humidity = $weatherData->getHumidity();
-        $this->display();
     }
 }

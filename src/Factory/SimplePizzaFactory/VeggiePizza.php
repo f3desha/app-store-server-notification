@@ -13,6 +13,4 @@ class VeggiePizza extends Pizza
     {
         echo "Custom way of preparing...\n";
     }
-
-
 }
