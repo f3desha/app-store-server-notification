@@ -1,6 +1,4 @@
-<?php
-
-namespace OOP\App\Mix\Fast;
+<?php namespace OOP\App\Mix\Fast;
 
 use Error;
 
