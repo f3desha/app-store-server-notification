@@ -68,8 +68,7 @@ class PatternsTest extends TestCase
     {
         $dispatcher = new StoreDispatcher();
         $store = $dispatcher->create('Berlin');
-        $car = $store->orderCar('c300');
-        var_dump($car);
+        $store->orderCar('c300');
 
         echo "\n===========================\n";
         $this->assertSame(0, 0);
@@ -77,8 +76,8 @@ class PatternsTest extends TestCase
 
     public function testDuneSecond(): void
     {
-        $baracks = new AtreidesBaracks();
-        $trooper = $baracks->orderTrooper('range');
+        $barracks = new AtreidesBaracks();
+        $trooper = $barracks->orderTrooper('range');
         echo $trooper->showStats();
 
         echo "\n===========================\n";
