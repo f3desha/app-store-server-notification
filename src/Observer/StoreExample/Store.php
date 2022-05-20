@@ -20,15 +20,15 @@ class Store implements Subject
         unset($this->observers[$key]);
     }
 
+    public function updateGoods(): void
+    {
+        $this->notifyObservers();
+    }
+
     public function notifyObservers(): void
     {
         foreach ($this->observers as $o) {
             $o->update();
         }
-    }
-
-    public function updateGoods(): void
-    {
-        $this->notifyObservers();
     }
 }

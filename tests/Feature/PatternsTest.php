@@ -1,4 +1,5 @@
 <?php
+
 namespace Feature;
 
 use Exception;
@@ -17,8 +18,8 @@ use OOP\App\Factory\FactoryMethodExample\FreemanBarack;
 use OOP\App\Factory\SimplePizzaFactory\PizzaStore;
 use OOP\App\Factory\SimplePizzaFactory\SimplePizzaFactory;
 use OOP\App\Mix\SampleOne\FuckingWordInputStream;
-use OOP\App\Mix\SampleOne\LowerCaseInputStream;
 use OOP\App\Mix\SampleOne\IOManipulator;
+use OOP\App\Mix\SampleOne\LowerCaseInputStream;
 use OOP\App\Mix\SampleOne\MySQLWriter;
 use OOP\App\Mix\SampleOne\SimpleFileWriter;
 use OOP\App\Mix\SampleOne\SimpleTextReader;
@@ -130,7 +131,7 @@ class PatternsTest extends TestCase
         $ext = random_int(0, 1) ? 'txt' : 'zip';
         $readerStrategy = match ($ext) {
             'txt' => new SimpleTextReader(__DIR__ . '\..\..\src\Files\SampleTextFile.txt'),
-            'zip' =>  new ZipReader(__DIR__ . '\..\..\src\Files\ZippedText.zip'),
+            'zip' => new ZipReader(__DIR__ . '\..\..\src\Files\ZippedText.zip'),
         };
 
         $ioManipulator = new IOManipulator();
@@ -144,7 +145,7 @@ class PatternsTest extends TestCase
         $ext = random_int(0, 1) ? 'file' : 'mysql';
         $writerStrategy = match ($ext) {
             'file' => new SimpleFileWriter($transformed, 'path'),
-            'mysql' =>  new MySQLWriter($transformed, 'database', 'tableName', 'field'),
+            'mysql' => new MySQLWriter($transformed, 'database', 'tableName', 'field'),
         };
 
         $ioManipulator->setWriterStrategy($writerStrategy);
