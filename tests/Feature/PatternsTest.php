@@ -1,19 +1,17 @@
 <?php
-namespace PatternsTests;
+namespace Feature;
 
+use Exception;
 use OOP\App\Decorator\CoffeeExample\BeverageSize;
 use OOP\App\Decorator\CoffeeExample\Espresso;
 use OOP\App\Decorator\CoffeeExample\Mocha;
 use OOP\App\Decorator\CoffeeExample\Soy;
 use OOP\App\Decorator\DressExample\KnifeDecorator;
 use OOP\App\Decorator\DressExample\SweaterDecorator;
-use OOP\App\Factory\AbstractCarFactory\BerlinBMWStore;
-use OOP\App\Factory\AbstractCarFactory\NYBMWStore;
 use OOP\App\Factory\AbstractCarFactory\StoreDispatcher;
 use OOP\App\Factory\AbstractFactoryExample\ChicagoPizzaStore;
 use OOP\App\Factory\AbstractFactoryExample\NYPizzaStore;
 use OOP\App\Factory\AbstractFactoryUnitExample\AtreidesBaracks;
-use OOP\App\Factory\AbstractFactoryUnitExample\FreemanBaracks;
 use OOP\App\Factory\FactoryMethodExample\AtreidesBarack;
 use OOP\App\Factory\FactoryMethodExample\FreemanBarack;
 use OOP\App\Factory\SimplePizzaFactory\PizzaStore;
@@ -63,10 +61,10 @@ use OOP\App\Strategy\ShooterGameExample\SwordBehavior;
 use OOP\App\Strategy\ShooterGameExample\Troll;
 use PHPUnit\Framework\TestCase;
 
-class TestSuite extends TestCase
+class PatternsTest extends TestCase
 {
 
-    public function testCarAssembly()
+    public function testCarAssembly(): void
     {
         $dispatcher = new StoreDispatcher();
         $store = $dispatcher->create('Berlin');
@@ -77,7 +75,7 @@ class TestSuite extends TestCase
         $this->assertSame(0, 0);
     }
 
-    public function testDuneSecond()
+    public function testDuneSecond(): void
     {
         $baracks = new AtreidesBaracks();
         $trooper = $baracks->orderTrooper('range');
@@ -87,7 +85,7 @@ class TestSuite extends TestCase
         $this->assertSame(0, 0);
     }
 
-    public function testDune()
+    public function testDune(): void
     {
         $playerOneBarack = new FreemanBarack();
         $trooper1 = $playerOneBarack->orderTrooper('range');
@@ -101,7 +99,7 @@ class TestSuite extends TestCase
         $this->assertSame(0, 0);
     }
 
-    public function testRegionalPizzaFactory()
+    public function testRegionalPizzaFactory(): void
     {
         $nyStore = new NYPizzaStore();
         $nyStore->orderPizza('cheese');
@@ -113,7 +111,7 @@ class TestSuite extends TestCase
         $this->assertSame(0, 0);
     }
 
-    public function testPizzaFactory()
+    public function testPizzaFactory(): void
     {
         $pizzaStore = new PizzaStore(new SimplePizzaFactory());
         $pizzaStore->orderPizza('cheese');
@@ -125,12 +123,15 @@ class TestSuite extends TestCase
         $this->assertSame(0, 0);
     }
 
-    public function testSampleOne()
+    /**
+     * @throws Exception
+     */
+    public function testSampleOne(): void
     {
-        $ext = rand(0, 1) ? 'txt' : 'zip';
+        $ext = random_int(0, 1) ? 'txt' : 'zip';
         $readerStrategy = match ($ext) {
-            'txt' => new SimpleTextReader(__DIR__ . '\SampleTextFile.txt'),
-            'zip' =>  new ZipReader(__DIR__ . '\ZippedText.zip'),
+            'txt' => new SimpleTextReader(__DIR__ . '\..\..\src\Files\SampleTextFile.txt'),
+            'zip' =>  new ZipReader(__DIR__ . '\..\..\src\Files\ZippedText.zip'),
         };
 
         $ioManipulator = new IOManipulator();
@@ -141,7 +142,7 @@ class TestSuite extends TestCase
         $transformed = $stream->read();
         echo $transformed . "\n";
 
-        $ext = rand(0, 1) ? 'file' : 'mysql';
+        $ext = random_int(0, 1) ? 'file' : 'mysql';
         $writerStrategy = match ($ext) {
             'file' => new SimpleFileWriter($transformed, 'path'),
             'mysql' =>  new MySQLWriter($transformed, 'database', 'tableName', 'field'),
@@ -154,7 +155,7 @@ class TestSuite extends TestCase
         $this->assertSame(0, 0);
     }
 
-    public function testStream()
+    public function testStream(): void
     {
         $input = new UpperCaseInputStream(new FuckingWordInputStream(
             new StringInputStream('Good Game')
@@ -167,7 +168,7 @@ class TestSuite extends TestCase
         $this->assertSame(0, 0);
     }
 
-    public function testClothes()
+    public function testClothes(): void
     {
         $character = new KnifeDecorator(new SweaterDecorator(new \OOP\App\Decorator\DressExample\King()));
         echo $character->getDescription();
@@ -175,7 +176,7 @@ class TestSuite extends TestCase
         $this->assertSame(0, 0);
     }
 
-    public function testButton()
+    public function testButton(): void
     {
         $button = new Button();
         new FileUploaderListener($button);
@@ -187,7 +188,7 @@ class TestSuite extends TestCase
         $this->assertSame(0, 0);
     }
 
-    public function testCoffee()
+    public function testCoffee(): void
     {
         $espresso = new Espresso();
         $mocha = new Mocha($espresso);
@@ -201,7 +202,7 @@ class TestSuite extends TestCase
         $this->assertSame(0, 0);
     }
 
-    public function testGameSpeed()
+    public function testGameSpeed(): void
     {
         $game = new Game();
         $game->setSpeedStrategy(new FullSpeedMode());
@@ -215,7 +216,7 @@ class TestSuite extends TestCase
         $this->assertSame(0, 0);
     }
 
-    public function testMallardDuck()
+    public function testMallardDuck(): void
     {
         $mallardDuck = new MallardDuck();
         $mallardDuck->display();
@@ -241,7 +242,7 @@ class TestSuite extends TestCase
         $this->assertSame(0, 0);
     }
 
-    public function testRoute()
+    public function testRoute(): void
     {
         $navigator = new Navigator();
         $navigator->setRouteStrategy(new PublicTransportStrategy());
@@ -251,7 +252,7 @@ class TestSuite extends TestCase
         $this->assertSame(0, 0);
     }
 
-    public function testGame()
+    public function testGame(): void
     {
         $character = new Queen();
         $character->setWeapon(new BowAndArrowBehavior());
@@ -273,7 +274,7 @@ class TestSuite extends TestCase
         $this->assertSame(0, 0);
     }
 
-    public function testStore()
+    public function testStore(): void
     {
         $store = new Store();
         new Butcher($store);
@@ -288,7 +289,7 @@ class TestSuite extends TestCase
         $this->assertSame(0, 0);
     }
 
-    public function testWatcher()
+    public function testWatcher(): void
     {
         $watcher = new Watcher();
 
@@ -303,7 +304,7 @@ class TestSuite extends TestCase
         $this->assertSame(0, 0);
     }
 
-    public function testWeather()
+    public function testWeather(): void
     {
         //Subject creation
         $weatherData = new WeatherData();
