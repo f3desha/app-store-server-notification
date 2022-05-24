@@ -40,6 +40,7 @@ use OOP\App\Observer\WeatherStationExample\ForecastDisplay;
 use OOP\App\Observer\WeatherStationExample\HeatIndexDisplay;
 use OOP\App\Observer\WeatherStationExample\StatisticsDisplay;
 use OOP\App\Observer\WeatherStationExample\WeatherData;
+use OOP\App\Singleton\ChocolateBoiler\ChocolateBoiler;
 use OOP\App\Strategy\AnimalExample\Animals\Dog;
 use OOP\App\Strategy\DuckExample\Behavior\RocketFly;
 use OOP\App\Strategy\DuckExample\Behavior\Squeak;
@@ -64,6 +65,12 @@ use PHPUnit\Framework\TestCase;
 
 class PatternsTest extends TestCase
 {
+    public function testSingle()
+    {
+        $chocInst = ChocolateBoiler::getInstance();
+        echo "\n===========================\n";
+        $this->assertSame(0, 0);
+    }
 
     public function testCarAssembly(): void
     {
