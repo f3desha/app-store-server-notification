@@ -15,17 +15,6 @@ class ChocolateBoiler
     private bool $empty;
 
     /**
-     * @var bool $boiled
-     */
-    private bool $boiled;
-
-    private function __construct()
-    {
-        $this->empty = true;
-        $this->boiled = false;
-    }
-
-    /**
      * @return ChocolateBoiler|null
      */
     public static function getInstance(): ?ChocolateBoiler
@@ -34,6 +23,31 @@ class ChocolateBoiler
             self::$uniqueInstance = new self();
         }
         return self::$uniqueInstance;
+    }
+
+    /**
+     *
+     */
+    private function __construct()
+    {
+        $this->empty = true;
+        $this->boiled = false;
+    }
+
+    /**
+     * @var bool $boiled
+     */
+    private bool $boiled;
+
+
+    /**
+     * @return void
+     */
+    public function boil(): void
+    {
+        if ($this->isEmpty() && $this->isBoiled()) {
+            $this->boiled = true;
+        }
     }
 
     /**
@@ -55,12 +69,6 @@ class ChocolateBoiler
         return $this->empty;
     }
 
-    public function boil(): void
-    {
-        if ($this->isEmpty() && $this->isBoiled()) {
-            $this->boiled = true;
-        }
-    }
 
     /**
      * @return bool
