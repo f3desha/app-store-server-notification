@@ -8,6 +8,8 @@ class ChocolateBoiler
      * @var ChocolateBoiler|null
      */
     private static ?ChocolateBoiler $uniqueInstance = null;
+
+
     /**
      * @var bool $empty
      */
