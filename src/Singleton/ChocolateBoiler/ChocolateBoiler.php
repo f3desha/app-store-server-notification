@@ -14,6 +14,8 @@ class ChocolateBoiler
      * @var bool $empty
      */
     private bool $empty;
+
+
     /**
      * @var bool $boiled
      */
