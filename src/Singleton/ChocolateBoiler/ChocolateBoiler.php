@@ -9,12 +9,10 @@ class ChocolateBoiler
      */
     private static ?ChocolateBoiler $uniqueInstance = null;
 
-
     /**
      * @var bool $empty
      */
     private bool $empty;
-
 
     /**
      * @var bool $boiled
