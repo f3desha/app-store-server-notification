@@ -3,8 +3,8 @@
 namespace Feature;
 
 use Exception;
-use OOP\App\Command\CommandPattern\Light;
-use OOP\App\Command\CommandPattern\LightOnCommand;
+use OOP\App\Command\CommandPattern\GarageDoor;
+use OOP\App\Command\CommandPattern\GarageDoorOpenCommand;
 use OOP\App\Command\CommandPattern\SimpleRemoteControl;
 use OOP\App\Decorator\CoffeeExample\BeverageSize;
 use OOP\App\Decorator\CoffeeExample\Espresso;
@@ -72,9 +72,9 @@ class PatternsTest extends TestCase
     public function testSimpleCommand()
     {
         $remote = new SimpleRemoteControl();
-        $light = new Light();
-        $lightOnCommand = new LightOnCommand($light);
-        $remote->setCommand($lightOnCommand);
+        $garageDoor = new GarageDoor();
+        $garageDoorCommand = new GarageDoorOpenCommand($garageDoor);
+        $remote->setCommand($garageDoorCommand);
         $remote->buttonWasPressed();
 
         echo "\n===========================\n";
