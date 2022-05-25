@@ -3,6 +3,9 @@
 namespace Feature;
 
 use Exception;
+use OOP\App\Command\CommandPattern\Light;
+use OOP\App\Command\CommandPattern\LightOnCommand;
+use OOP\App\Command\CommandPattern\SimpleRemoteControl;
 use OOP\App\Decorator\CoffeeExample\BeverageSize;
 use OOP\App\Decorator\CoffeeExample\Espresso;
 use OOP\App\Decorator\CoffeeExample\Mocha;
@@ -66,6 +69,18 @@ use PHPUnit\Framework\TestCase;
 
 class PatternsTest extends TestCase
 {
+    public function testSimpleCommand()
+    {
+        $remote = new SimpleRemoteControl();
+        $light = new Light();
+        $lightOnCommand = new LightOnCommand($light);
+        $remote->setCommand($lightOnCommand);
+        $remote->buttonWasPressed();
+
+        echo "\n===========================\n";
+        $this->assertSame(0, 0);
+    }
+
     public function testSimpleSingleton()
     {
         $singleton = Singleton::getInstance();
