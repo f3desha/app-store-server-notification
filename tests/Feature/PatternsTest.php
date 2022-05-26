@@ -5,6 +5,19 @@ namespace Feature;
 use Exception;
 use OOP\App\Command\CommandPattern\GarageDoor;
 use OOP\App\Command\CommandPattern\GarageDoorOpenCommand;
+use OOP\App\Command\CommandPattern\RemoteControll\CeilingFan;
+use OOP\App\Command\CommandPattern\RemoteControll\CeilingFanOffCommand;
+use OOP\App\Command\CommandPattern\RemoteControll\CeilingFanOnCommand;
+use OOP\App\Command\CommandPattern\RemoteControll\GarageDoor as GD;
+use OOP\App\Command\CommandPattern\RemoteControll\GarageDoorCloseCommand as GDCC;
+use OOP\App\Command\CommandPattern\RemoteControll\GarageDoorOpenCommand as GDOC;
+use OOP\App\Command\CommandPattern\RemoteControll\Light;
+use OOP\App\Command\CommandPattern\RemoteControll\LightOffCommand;
+use OOP\App\Command\CommandPattern\RemoteControll\LightOnCommand;
+use OOP\App\Command\CommandPattern\RemoteControll\RemoteControl;
+use OOP\App\Command\CommandPattern\RemoteControll\Stereo;
+use OOP\App\Command\CommandPattern\RemoteControll\StereoOffCommand;
+use OOP\App\Command\CommandPattern\RemoteControll\StereoOnCommand;
 use OOP\App\Command\CommandPattern\SimpleRemoteControl;
 use OOP\App\Decorator\CoffeeExample\BeverageSize;
 use OOP\App\Decorator\CoffeeExample\Espresso;
@@ -69,6 +82,49 @@ use PHPUnit\Framework\TestCase;
 
 class PatternsTest extends TestCase
 {
+    public function testRemoteControl()
+    {
+        $remote = new RemoteControl();
+
+        $livingRoomLight = new Light("Living Room");
+        $kitchenLight = new Light("Kitchen");
+        $livingRoomCeilingFan = new CeilingFan("Living Room");
+        $garageDoor = new GD();
+        $stereo = new Stereo("Living Room");
+
+        $lightOnCommand = new LightOnCommand($livingRoomLight);
+        $lightOffCommand = new LightOffCommand($livingRoomLight);
+        $kitchenLightOnCommand = new LightOnCommand($kitchenLight);
+        $kitchenLightOffCommand = new LightOffCommand($kitchenLight);
+        $livingRoomCeilingFanOnCommand = new CeilingFanOnCommand($livingRoomCeilingFan);
+        $livingRoomCeilingFanOffCommand = new CeilingFanOffCommand($livingRoomCeilingFan);
+        $garageDoorOpenCommand = new GDOC($garageDoor);
+        $garageDoorCloseCommand = new GDCC($garageDoor);
+        $stereoOnCommand = new StereoOnCommand($stereo);
+        $stereoOffCommand = new StereoOffCommand($stereo);
+
+        $remote->setCommand(0, $lightOnCommand, $lightOffCommand);
+        $remote->setCommand(1, $kitchenLightOnCommand, $kitchenLightOffCommand);
+        $remote->setCommand(2, $livingRoomCeilingFanOnCommand, $livingRoomCeilingFanOffCommand);
+        $remote->setCommand(3, $garageDoorOpenCommand, $garageDoorCloseCommand);
+        $remote->setCommand(4, $stereoOnCommand, $stereoOffCommand);
+
+        $remote->onButtonWasPushed(0);
+        $remote->offButtonWasPushed(0);
+        $remote->onButtonWasPushed(1);
+        $remote->offButtonWasPushed(1);
+        $remote->onButtonWasPushed(2);
+        $remote->offButtonWasPushed(2);
+        $remote->onButtonWasPushed(3);
+        $remote->offButtonWasPushed(3);
+        $remote->onButtonWasPushed(4);
+        $remote->offButtonWasPushed(4);
+
+        echo "\n===========================\n";
+        $this->assertSame(0, 0);
+    }
+
+
     public function testSimpleCommand()
     {
         $remote = new SimpleRemoteControl();
