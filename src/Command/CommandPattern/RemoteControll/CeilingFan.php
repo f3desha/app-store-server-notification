@@ -9,21 +9,51 @@ class CeilingFan
      */
     private string $name;
 
+    const HIGH = 3;
+    const MEDIUM = 2;
+    const LOW = 1;
+    const OFF = 0;
+
+    /**
+     * @var int $speed
+     */
+    private int $speed;
+
     /**
      * @param string $name
      */
     public function __construct(string $name)
     {
         $this->name = $name;
+        $this->speed = self::OFF;
     }
 
-    public function on(): void
+    public function high(): void
     {
-        echo "$this->name ceiling fan is on\n";
+        $this->speed = self::HIGH;
+        echo "Fan speed is high\n";
+    }
+
+    public function medium(): void
+    {
+        $this->speed = self::MEDIUM;
+        echo "Fan speed is medium\n";
+    }
+
+    public function low(): void
+    {
+        $this->speed = self::LOW;
+        echo "Fan speed is low\n";
     }
 
     public function off(): void
     {
-        echo "$this->name ceiling fan is off\n";
+        $this->speed = self::OFF;
+        echo "Fan is off\n";
+    }
+
+    public function getSpeed(): int
+    {
+        return $this->speed;
     }
 }

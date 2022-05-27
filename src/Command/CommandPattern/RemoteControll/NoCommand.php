@@ -9,4 +9,9 @@ class NoCommand implements Command
     {
         echo "NoCommand\n";
     }
+
+    public function undo(): void
+    {
+        echo "NoCommand\n";
+    }
 }

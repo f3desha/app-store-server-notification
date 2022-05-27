@@ -11,6 +11,11 @@ class LightOnCommand implements Command
     private Light $light;
 
     /**
+     * @var int $prevState
+     */
+    private int $prevState;
+
+    /**
      * @param Light $light
      */
     public function __construct(Light $light)
@@ -20,6 +25,19 @@ class LightOnCommand implements Command
 
     public function execute(): void
     {
+        $this->prevState = $this->light->getState();
         $this->light->on();
+    }
+
+    public function undo(): void
+    {
+        switch ($this->prevState) {
+            case Light::ON:
+                $this->light->off();
+                break;
+            case Light::OFF:
+                $this->light->off();
+                break;
+        }
     }
 }

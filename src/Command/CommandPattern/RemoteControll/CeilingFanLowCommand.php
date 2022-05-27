@@ -2,7 +2,7 @@
 
 namespace OOP\App\Command\CommandPattern\RemoteControll;
 
-class CeilingFanOffCommand implements Command
+class CeilingFanLowCommand implements Command
 {
 
     /**
@@ -10,6 +10,9 @@ class CeilingFanOffCommand implements Command
      */
     private CeilingFan $ceilingFan;
 
+    /**
+     * @var int $prevSpeed
+     */
     private int $prevSpeed;
 
     /**
@@ -24,7 +27,7 @@ class CeilingFanOffCommand implements Command
     public function execute(): void
     {
         $this->prevSpeed = $this->ceilingFan->getSpeed();
-        $this->ceilingFan->off();
+        $this->ceilingFan->low();
     }
 
     public function undo(): void
