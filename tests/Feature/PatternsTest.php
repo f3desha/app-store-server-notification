@@ -66,6 +66,10 @@ use OOP\App\Strategy\GameSpeedExample\FastSpeedMode;
 use OOP\App\Strategy\GameSpeedExample\FullSpeedMode;
 use OOP\App\Strategy\GameSpeedExample\Game;
 use OOP\App\Strategy\GameSpeedExample\HalfSpeedMode;
+use OOP\App\Strategy\InternetTest\ManufacturerFilter;
+use OOP\App\Strategy\InternetTest\MaxPriceFilter;
+use OOP\App\Strategy\InternetTest\Product;
+use OOP\App\Strategy\InternetTest\ProductCollection;
 use OOP\App\Strategy\NavigatorExample\Navigator;
 use OOP\App\Strategy\NavigatorExample\Strategies\PublicTransportStrategy;
 use OOP\App\Strategy\ShooterGameExample\AxeBehavior;
@@ -82,9 +86,26 @@ class PatternsTest extends TestCase
 {
     public function testDirectEx()
     {
+        $p1 = new Product();
+        $p1->listPrice = 100;
+        $p1->sellingPrice = 50;
+        $p1->manufacturer = 'WidgetCorp';
 
-        echo "\n===========================\n";
-        $this->assertSame(0, 0);
+        $p2 = new Product;
+        $p2->listPrice = 100;
+        $p2->manufacturer = 'Widgetron, LLC';
+
+        $collection = new ProductCollection([$p1, $p2]);
+
+        $resultCollection = $collection->filter(new ManufacturerFilter('Widgetron, LLC'));
+
+        $this->assertSame(count($resultCollection->getProductsArray()), 1);
+        $this->assertTrue($resultCollection->getProductsArray()[0]->manufacturer === 'Widgetron, LLC');
+
+        $resultCollection = $collection->filter(new MaxPriceFilter(50));
+
+        $this->assertSame(count($resultCollection->getProductsArray()), 1);
+        $this->assertTrue($resultCollection->getProductsArray()[0]->manufacturer === 'WidgetCorp');
     }
 
     public function testRemoteControl()
@@ -116,8 +137,7 @@ class PatternsTest extends TestCase
         $remote->setCommand(1, $livingRoomCeilingFanMiddleCommand, $livingRoomCeilingFanOffCommand);
         $remote->setCommand(2, $livingRoomCeilinFanLowCommand, $livingRoomCeilingFanOffCommand);
 
-        $remote->offButtonWasPushed(0);
-        $remote->undoButtonWasPushed();
+        $remote->onButtonWasPushed(0);
 
         echo "\n===========================\n";
         $this->assertSame(0, 0);
