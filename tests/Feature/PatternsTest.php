@@ -40,6 +40,7 @@ use OOP\App\Mix\SampleOne\SimpleTextReader;
 use OOP\App\Mix\SampleOne\StringInputStream;
 use OOP\App\Mix\SampleOne\UpperCaseInputStream;
 use OOP\App\Mix\SampleOne\ZipReader;
+use OOP\App\Observer\InternetTest\Logger;
 use OOP\App\Observer\StoreExample\Baker;
 use OOP\App\Observer\StoreExample\Butcher;
 use OOP\App\Observer\StoreExample\Store;
@@ -84,6 +85,18 @@ use PHPUnit\Framework\TestCase;
 
 class PatternsTest extends TestCase
 {
+    public function testInternetCaseObservers()
+    {
+        $p = new \OOP\App\Observer\InternetTest\Product();
+        $l = new Logger();
+        $p->name = 'Test Product 1';
+        $p->attach($l);
+
+        $this->assertTrue(count($l->getEvents()) === 0);
+        $p->foo = 'bar';
+        $this->assertTrue(count($l->getEvents()) === 1);
+    }
+
     public function testDirectEx()
     {
         $p1 = new Product();
