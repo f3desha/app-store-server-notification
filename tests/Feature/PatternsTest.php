@@ -23,6 +23,9 @@ use OOP\App\Decorator\CoffeeExample\Mocha;
 use OOP\App\Decorator\CoffeeExample\Soy;
 use OOP\App\Decorator\DressExample\KnifeDecorator;
 use OOP\App\Decorator\DressExample\SweaterDecorator;
+use OOP\App\Decorator\InternetTest\ErrorDecorator;
+use OOP\App\Decorator\InternetTest\InputText;
+use OOP\App\Decorator\InternetTest\LabelDecorator;
 use OOP\App\Factory\AbstractCarFactory\StoreDispatcher;
 use OOP\App\Factory\AbstractFactoryExample\ChicagoPizzaStore;
 use OOP\App\Factory\AbstractFactoryExample\NYPizzaStore;
@@ -85,6 +88,28 @@ use PHPUnit\Framework\TestCase;
 
 class PatternsTest extends TestCase
 {
+    public function testInternetCaseDecorator()
+    {
+        $input = new InputText('nickname');
+        printf("InputText without decorator:<br>%s<br>", $input);
+
+        $labelled = new LabelDecorator($input);
+        $labelled->setLabel('Nickname:');
+        printf("InputText with LabelDecorator:<br>%s<br>", $labelled);
+
+        $error = new ErrorDecorator($input);
+        $error->setError('You must enter a unique nickname');
+        printf("InputText with ErrorDecorator:<br>%s<br>\n", $error);
+
+        // Label + Error
+        $error = new ErrorDecorator($labelled);
+        $error->setError('You must enter a unique nickname');
+        printf("InputText with LabelDecorator and ErrorDecorator:<br>%s<br>", $error);
+
+        echo "\n===========================\n";
+        $this->assertSame(0, 0);
+    }
+
     public function testInternetCaseObservers()
     {
         $p = new \OOP\App\Observer\InternetTest\Product();
