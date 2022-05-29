@@ -3,6 +3,10 @@
 namespace Feature;
 
 use Exception;
+use OOP\App\Adapter\InternetTest\CreditCard;
+use OOP\App\Adapter\InternetTest\CreditCardAdapter;
+use OOP\App\Adapter\InternetTest\PayPal;
+use OOP\App\Adapter\InternetTest\PayPalAdapter;
 use OOP\App\Command\CommandPattern\GarageDoor;
 use OOP\App\Command\CommandPattern\GarageDoorOpenCommand;
 use OOP\App\Command\CommandPattern\RemoteControll\CeilingFan;
@@ -88,6 +92,18 @@ use PHPUnit\Framework\TestCase;
 
 class PatternsTest extends TestCase
 {
+    public function testInternetTestAdaptor()
+    {
+        $paypal = new PayPal('customer@aol.com', 'password');
+        $cc = new CreditCard(1234567890123456, "09/12");
+
+        $paypalAdapter = new PayPalAdapter($paypal);
+        $ccAdapter = new CreditCardAdapter($cc);
+
+        $this->assertTrue($paypalAdapter->collectMoney(50));
+        $this->assertTrue($ccAdapter->collectMoney(50));
+    }
+
     public function testInternetCaseDecorator()
     {
         $input = new InputText('nickname');

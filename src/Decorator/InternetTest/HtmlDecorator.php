@@ -11,13 +11,18 @@ abstract class HtmlDecorator implements HtmlElement
     /**
      * @param $element
      */
-    public function __construct($element)
+    public function __construct(HtmlElement $input)
     {
-        $this->element = $element;
+        $this->element = $input;
     }
 
     public function getName()
     {
         return $this->element->getName();
+    }
+
+    public function __toString()
+    {
+        return $this->element->__toString();
     }
 }
