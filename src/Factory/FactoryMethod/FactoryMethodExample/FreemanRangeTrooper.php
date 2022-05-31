@@ -1,6 +1,6 @@
 <?php
 
-namespace OOP\App\Factory\FactoryMethodExample;
+namespace OOP\App\Factory\FactoryMethod\FactoryMethodExample;
 
 class FreemanRangeTrooper extends Trooper
 {

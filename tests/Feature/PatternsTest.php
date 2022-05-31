@@ -6,12 +6,48 @@ use OOP\App\Adapter\InternetTest\CreditCard;
 use OOP\App\Adapter\InternetTest\CreditCardAdapter;
 use OOP\App\Adapter\InternetTest\PayPal;
 use OOP\App\Adapter\InternetTest\PayPalAdapter;
+use OOP\App\Adapter\MyAdapter\MyIterator;
+use OOP\App\Adapter\MyAdapter\MyIteratorSplDoublyLinkedListAdapter;
+use OOP\App\Factory\FactoryMethod\LogisticsFactory\LogisticsFactory;
 use OOP\App\Factory\InternetTest\MyShopProductFactory;
 use OOP\App\Factory\InternetTest\Shop;
 use PHPUnit\Framework\TestCase;
 
 class PatternsTest extends TestCase
 {
+    public function testLogistFactoryMethods()
+    {
+        $logisticsFactory = LogisticsFactory::defineLogistics('road');
+        $transport = $logisticsFactory->createTransport();
+        $transport->deliver();
+
+        echo "\n===========================\n";
+        $this->assertSame(0, 0);
+    }
+
+    public function testMyList()
+    {
+        //Concrete list implements MyIteratorInterface
+        $myIter = new MyIterator();
+        $myIter->addSpec(888);
+
+        $l = new \SplDoublyLinkedList();
+        $l->add(0, 5);
+        $l->add(1, 6);
+        $l->add(2, 7);
+
+        $list = new MyIteratorSplDoublyLinkedListAdapter($l);
+
+        //Dependent on interface code goes here
+        $list->addSpec(1);
+        $list->addSpec(2);
+        $list->addSpec(3);
+        echo $list->getNextElementSpec() . "\n";
+
+        echo "\n===========================\n";
+        $this->assertSame(0, 0);
+    }
+
     public function testFactoryInternetCase()
     {
         $productData = [
