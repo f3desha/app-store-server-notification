@@ -11,10 +11,21 @@ use OOP\App\Adapter\MyAdapter\MyIteratorSplDoublyLinkedListAdapter;
 use OOP\App\Factory\FactoryMethod\LogisticsFactory\LogisticsFactory;
 use OOP\App\Factory\InternetTest\MyShopProductFactory;
 use OOP\App\Factory\InternetTest\Shop;
+use OOP\App\TemplateMethod\StarbuzCoffee\Tea;
 use PHPUnit\Framework\TestCase;
+use SplDoublyLinkedList;
 
 class PatternsTest extends TestCase
 {
+    public function testStarbuzCoffee()
+    {
+        $drink = new Tea();
+        $drink->prepare();
+
+        echo "\n===========================\n";
+        $this->assertSame(0, 0);
+    }
+
     public function testLogistFactoryMethods()
     {
         $logisticsFactory = LogisticsFactory::defineLogistics('road');
@@ -31,7 +42,7 @@ class PatternsTest extends TestCase
         $myIter = new MyIterator();
         $myIter->addSpec(888);
 
-        $l = new \SplDoublyLinkedList();
+        $l = new SplDoublyLinkedList();
         $l->add(0, 5);
         $l->add(1, 6);
         $l->add(2, 7);
