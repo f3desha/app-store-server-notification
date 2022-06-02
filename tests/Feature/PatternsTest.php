@@ -11,15 +11,38 @@ use OOP\App\Adapter\MyAdapter\MyIteratorSplDoublyLinkedListAdapter;
 use OOP\App\Factory\FactoryMethod\LogisticsFactory\LogisticsFactory;
 use OOP\App\Factory\InternetTest\MyShopProductFactory;
 use OOP\App\Factory\InternetTest\Shop;
-use OOP\App\TemplateMethod\StarbuzCoffee\Tea;
+use OOP\App\Iterator\KFCsMenu;
+use OOP\App\Iterator\MacdonaldsMenu;
+use OOP\App\Iterator\Waitress;
+use OOP\App\TemplateMethod\StarbuzCoffee\CoffeeWithHook;
 use PHPUnit\Framework\TestCase;
 use SplDoublyLinkedList;
 
 class PatternsTest extends TestCase
 {
+    public function testIterator()
+    {
+        $macMenu = new MacdonaldsMenu();
+        $macMenu->addItem(['Cheeseburger']);
+        $macMenu->addItem(['Hamburger']);
+        $macMenu->addItem(['Cola']);
+
+
+        $kfcMenu = new KFCsMenu();
+        $kfcMenu->add(['Chicken Wings']);
+        $kfcMenu->add(['Bulbasandwich']);
+        $kfcMenu->add(['Onion Rings']);
+
+        $waitress = new Waitress($kfcMenu, $macMenu);
+        $waitress->print();
+
+        echo "\n===========================\n";
+        $this->assertSame(0, 0);
+    }
+
     public function testStarbuzCoffee()
     {
-        $drink = new Tea();
+        $drink = new CoffeeWithHook();
         $drink->prepare();
 
         echo "\n===========================\n";

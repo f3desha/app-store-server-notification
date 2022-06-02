@@ -10,20 +10,27 @@ abstract class Drink
         $this->boilWater();
         $this->brew();
         $this->pushInCup();
-        $this->addCondiments();
+        if ($this->ifCondiments()) {
+            $this->addCondiments();
+        }
     }
 
-    public function boilWater(): void
+    private function boilWater(): void
     {
         echo "Boiling water...\n";
     }
 
-    abstract public function brew(): void;
+    abstract protected function brew(): void;
 
-    public function pushInCup(): void
+    private function pushInCup(): void
     {
         echo "Taking drink into a cup...\n";
     }
 
-    abstract public function addCondiments(): void;
+    protected function ifCondiments(): bool
+    {
+        return false;
+    }
+
+    abstract protected function addCondiments(): void;
 }
