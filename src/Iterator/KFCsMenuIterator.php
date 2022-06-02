@@ -25,10 +25,7 @@ class KFCsMenuIterator implements MyIterator
 
     public function hasNext(): bool
     {
-        if ($this->counter > count($this->menu) - 1) {
-            return false;
-        }
-        return true;
+        return $this->counter <= count($this->menu) - 1;
     }
 
     public function next()
