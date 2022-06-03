@@ -16,6 +16,10 @@ class MacdonaldsMenu implements Menu
      */
     private string $name = "Macdonald's menu";
 
+    public function __construct()
+    {
+        $this->menu = new SplDoublyLinkedList();
+    }
 
     /**
      * @return string
@@ -23,11 +27,6 @@ class MacdonaldsMenu implements Menu
     public function getName(): string
     {
         return $this->name;
-    }
-
-    public function __construct()
-    {
-        $this->menu = new SplDoublyLinkedList();
     }
 
     public function addItem(MacFoodItem $item): void
