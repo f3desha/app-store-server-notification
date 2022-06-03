@@ -6,7 +6,11 @@ abstract class Controller
 {
     public function invoke(string $action): void
     {
-        $actionName = "action" . $action;
-        $this->$actionName();
+        try {
+            $actionName = "action" . $action;
+            $this->$actionName();
+        } catch (\Error $e) {
+            throw new \Exception("'$action' action not found...");
+        }
     }
 }

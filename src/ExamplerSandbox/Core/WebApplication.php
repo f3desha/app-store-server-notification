@@ -15,8 +15,12 @@ class WebApplication extends Application
 
     protected function start(): void
     {
-        $this->router = new Router($_REQUEST);
-        $controller = $this->router->getController();
-        $controller->invoke($this->router->getAction());
+        try {
+            $this->router = new Router($_REQUEST);
+            $controller = $this->router->getController();
+            $controller->invoke($this->router->getAction());
+        } catch (\Exception $e) {
+            echo $e->getMessage();
+        }
     }
 }

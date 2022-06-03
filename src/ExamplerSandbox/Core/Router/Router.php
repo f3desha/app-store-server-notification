@@ -2,6 +2,7 @@
 
 namespace OOP\App\ExamplerSandbox\Core\Router;
 
+use Exception;
 use OOP\App\ExamplerSandbox\Controllers\AniexpressController;
 use OOP\App\ExamplerSandbox\Controllers\IndexController;
 use OOP\App\ExamplerSandbox\Core\Controller\Controller;
@@ -29,7 +30,8 @@ class Router
 
         return match ($this->request['controller']) {
             'index' => new IndexController(),
-            'aniexpress' => new AniexpressController()
+            'aniexpress' => new AniexpressController(),
+            default => throw new Exception("Controller '{$this->request['controller']}' not found...")
         };
     }
 
