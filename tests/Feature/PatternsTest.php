@@ -14,6 +14,7 @@ use OOP\App\Factory\InternetTest\Shop;
 use OOP\App\Iterator\KFCsMenu;
 use OOP\App\Iterator\MacdonaldsMenu;
 use OOP\App\Iterator\MacFoodItem;
+use OOP\App\Iterator\VlavasheMenu;
 use OOP\App\Iterator\Waitress;
 use OOP\App\TemplateMethod\StarbuzCoffee\CoffeeWithHook;
 use PHPUnit\Framework\TestCase;
@@ -34,7 +35,11 @@ class PatternsTest extends TestCase
         $kfcMenu->add(['Bulbasandwich', 15.99]);
         $kfcMenu->add(['Onion Rings', 12.99]);
 
-        $waitress = new Waitress($kfcMenu, $macMenu);
+        $vlavasheMenu = new VlavasheMenu();
+        $vlavasheMenu->addToMenu('Regular Shaurma', 'Some desc...', false, 15.99);
+        $vlavasheMenu->addToMenu('Double Shaurma', 'Too much meat...', false, 29.99);
+
+        $waitress = new Waitress($kfcMenu, $macMenu, $vlavasheMenu);
         $waitress->print();
 
         echo "\n===========================\n";

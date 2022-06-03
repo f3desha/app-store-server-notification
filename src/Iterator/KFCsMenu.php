@@ -2,6 +2,8 @@
 
 namespace OOP\App\Iterator;
 
+use InvalidArgumentException;
+
 class KFCsMenu implements Agregate
 {
     /**
@@ -11,7 +13,11 @@ class KFCsMenu implements Agregate
 
     public function add($item): void
     {
-        $this->menu[] = $item;
+        if (is_array($item) && is_string($item[0]) && is_float($item[1])) {
+            $this->menu[] = $item;
+        } else {
+            throw new InvalidArgumentException('KFC Item wrong format');
+        }
     }
 
     public function getIterator(): MyIterator

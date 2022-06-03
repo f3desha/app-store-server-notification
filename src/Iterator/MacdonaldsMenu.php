@@ -17,7 +17,7 @@ class MacdonaldsMenu implements Agregate
     }
 
 
-    public function addItem($item): void
+    public function addItem(MacFoodItem $item): void
     {
         $this->menu->push($item);
     }

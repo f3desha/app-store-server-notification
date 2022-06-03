@@ -17,13 +17,19 @@ class Waitress
     private MacdonaldsMenu $macMenu;
 
     /**
+     * @var VlavasheMenu $vlavasheMenu
+     */
+    private VlavasheMenu $vlavasheMenu;
+
+    /**
      * @param KFCsMenu $kfcMenu
      * @param MacdonaldsMenu $macMenu
      */
-    public function __construct(KFCsMenu $kfcMenu, MacdonaldsMenu $macMenu)
+    public function __construct(KFCsMenu $kfcMenu, MacdonaldsMenu $macMenu, VlavasheMenu $vlavasheMenu)
     {
         $this->kfcMenu = $kfcMenu;
         $this->macMenu = $macMenu;
+        $this->vlavasheMenu = $vlavasheMenu;
     }
 
     public function print(): void
@@ -36,6 +42,11 @@ class Waitress
         echo "MacDonald's Menu:\n";
         foreach ($this->getMenu($this->macMenu->getIterator()) as $menuItem) {
             $this->printMyMenuItem(new MacdonaldsMenuItemAdapter($menuItem));
+        }
+        echo "=================\n";
+        echo "Vlavashe Menu:\n";
+        foreach ($this->getMenu($this->vlavasheMenu->getIterator()) as $menuItem) {
+            $this->printMyMenuItem(new VlavasheMenuItemAdapter($menuItem));
         }
         echo "=================\n";
     }
