@@ -2,7 +2,7 @@
 
 namespace OOP\App\Iterator;
 
-class KFCsMenu
+class KFCsMenu implements Agregate
 {
     /**
      * @var array $menu
@@ -14,7 +14,7 @@ class KFCsMenu
         $this->menu[] = $item;
     }
 
-    public function getIterator(): KFCsMenuIterator
+    public function getIterator(): MyIterator
     {
         return new KFCsMenuIterator($this->menu);
     }
