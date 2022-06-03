@@ -34,29 +34,29 @@ class Waitress
 
     public function print(): void
     {
-        echo "KFC's Menu:\n";
-        foreach ($this->getMenu($this->kfcMenu->getIterator()) as $menuItem) {
-            $this->printMyMenuItem(new KFCsMenuItemAdapter($menuItem));
+        echo $this->kfcMenu->getName() . ":\n";
+        foreach ($this->getMenuItem($this->kfcMenu->getIterator()) as $menuItem) {
+            $this->printMyMenuItem($this->kfcMenu->getAdapter($menuItem));
         }
         echo "=================\n";
-        echo "MacDonald's Menu:\n";
-        foreach ($this->getMenu($this->macMenu->getIterator()) as $menuItem) {
-            $this->printMyMenuItem(new MacdonaldsMenuItemAdapter($menuItem));
+        echo $this->macMenu->getName() . ":\n";
+        foreach ($this->getMenuItem($this->macMenu->getIterator()) as $menuItem) {
+            $this->printMyMenuItem($this->macMenu->getAdapter($menuItem));
         }
         echo "=================\n";
-        echo "Vlavashe Menu:\n";
-        foreach ($this->getMenu($this->vlavasheMenu->getIterator()) as $menuItem) {
-            $this->printMyMenuItem(new VlavasheMenuItemAdapter($menuItem));
+        echo $this->vlavasheMenu->getName() . ":\n";
+        foreach ($this->getMenuItem($this->vlavasheMenu->getIterator()) as $menuItem) {
+            $this->printMyMenuItem($this->vlavasheMenu->getAdapter($menuItem));
         }
         echo "=================\n";
     }
 
     private function printMyMenuItem(MyMenuItemAdapter $item): void
     {
-        echo $item->getItemsName() . ' - ' . $item->getItemsPrice() . "\n";
+        echo $item->getItemsName() . ' - ' . $item->getItemsPrice() . "$\n";
     }
 
-    private function getMenu(MyIterator $iterator): Generator
+    private function getMenuItem(MyIterator $iterator): Generator
     {
         while ($iterator->hasNext()) {
             yield $iterator->next();

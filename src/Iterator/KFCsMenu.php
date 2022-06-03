@@ -4,12 +4,25 @@ namespace OOP\App\Iterator;
 
 use InvalidArgumentException;
 
-class KFCsMenu implements Agregate
+class KFCsMenu implements Menu
 {
     /**
      * @var array $menu
      */
     private array $menu;
+
+    /**
+     * @var string $name
+     */
+    private string $name = "KFC's menu";
+
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
 
     public function add($item): void
     {
@@ -23,5 +36,10 @@ class KFCsMenu implements Agregate
     public function getIterator(): MyIterator
     {
         return new KFCsMenuIterator($this->menu);
+    }
+
+    public function getAdapter($item): MyMenuItemAdapter
+    {
+        return new KFCsMenuItemAdapter($item);
     }
 }

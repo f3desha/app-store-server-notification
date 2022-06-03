@@ -4,12 +4,25 @@ namespace OOP\App\Iterator;
 
 use SplStack;
 
-class VlavasheMenu implements Agregate
+class VlavasheMenu implements Menu
 {
     /**
      * @var SplStack $menu
      */
     private SplStack $menu;
+
+    /**
+     * @var string $name
+     */
+    private string $name = "Vlavashe's menu";
+
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
 
     public function __construct()
     {
@@ -30,5 +43,10 @@ class VlavasheMenu implements Agregate
     public function getIterator(): MyIterator
     {
         return new VlavasheMenuIterator($this->menu);
+    }
+
+    public function getAdapter($item): MyMenuItemAdapter
+    {
+        return new VlavasheMenuItemAdapter($item);
     }
 }

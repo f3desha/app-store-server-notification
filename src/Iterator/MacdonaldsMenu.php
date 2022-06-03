@@ -4,12 +4,25 @@ namespace OOP\App\Iterator;
 
 use SplDoublyLinkedList;
 
-class MacdonaldsMenu implements Agregate
+class MacdonaldsMenu implements Menu
 {
     /**
      * @var SplDoublyLinkedList $menu
      */
     private SplDoublyLinkedList $menu;
+
+    /**
+     * @var string $name
+     */
+    private string $name = "Macdonald's menu";
+
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
 
     public function __construct()
     {
@@ -25,5 +38,10 @@ class MacdonaldsMenu implements Agregate
     public function getIterator(): MyIterator
     {
         return new MacdonaldsMenuIterator($this->menu);
+    }
+
+    public function getAdapter($item): MyMenuItemAdapter
+    {
+        return new MacdonaldsMenuItemAdapter($item);
     }
 }
