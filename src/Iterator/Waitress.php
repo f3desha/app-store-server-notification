@@ -2,6 +2,8 @@
 
 namespace OOP\App\Iterator;
 
+use Generator;
+
 class Waitress
 {
     /**
@@ -26,14 +28,27 @@ class Waitress
 
     public function print(): void
     {
-        $this->printMenu($this->kfcMenu->getIterator());
-        $this->printMenu($this->macMenu->getIterator());
+        echo "KFC's Menu:\n";
+        foreach ($this->getMenu($this->kfcMenu->getIterator()) as $menuItem) {
+            $this->printMyMenuItem(new KFCsMenuItemAdapter($menuItem));
+        }
+        echo "=================\n";
+        echo "MacDonald's Menu:\n";
+        foreach ($this->getMenu($this->macMenu->getIterator()) as $menuItem) {
+            $this->printMyMenuItem(new MacdonaldsMenuItemAdapter($menuItem));
+        }
+        echo "=================\n";
     }
 
-    private function printMenu(MyIterator $iterator): void
+    private function printMyMenuItem(MyMenuItemAdapter $item): void
+    {
+        echo $item->getItemsName() . ' - ' . $item->getItemsPrice() . "\n";
+    }
+
+    private function getMenu(MyIterator $iterator): Generator
     {
         while ($iterator->hasNext()) {
-            var_dump($iterator->next());
+            yield $iterator->next();
         }
     }
 }
