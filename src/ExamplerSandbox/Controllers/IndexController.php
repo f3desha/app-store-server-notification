@@ -8,6 +8,19 @@ class IndexController extends Controller
 {
     public function actionIndex(): void
     {
-        echo 'INDEX';
+        echo <<<HTML
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>Title</title>
+        </head>
+        <body>
+            <ul>
+                <li><a href="index.php?controller=aniexpress">Aniexpress example</a></li>
+            </ul>
+        </body>
+        </html>
+        HTML;
     }
 }
