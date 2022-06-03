@@ -1,6 +1,6 @@
 <?php
 
-namespace OOP\App\ExamplerSandbox\Controllers;
+namespace OOP\App\ExamplerSandbox\Application\Controllers;
 
 use OOP\App\ExamplerSandbox\Core\Controller\Controller;
 

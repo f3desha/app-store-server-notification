@@ -3,8 +3,8 @@
 namespace OOP\App\ExamplerSandbox\Core\Router;
 
 use Exception;
-use OOP\App\ExamplerSandbox\Controllers\AniexpressController;
-use OOP\App\ExamplerSandbox\Controllers\IndexController;
+use OOP\App\ExamplerSandbox\Application\Controllers\AniexpressController;
+use OOP\App\ExamplerSandbox\Application\Controllers\IndexController;
 use OOP\App\ExamplerSandbox\Core\Controller\Controller;
 
 class Router
