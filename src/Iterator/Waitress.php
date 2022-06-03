@@ -30,15 +30,15 @@ class Waitress
         }
     }
 
-    private function printMyMenuItem(MyMenuItemAdapter $item): void
-    {
-        echo $item->getItemsName() . ' - ' . $item->getItemsPrice() . "$\n";
-    }
-
     private function getMenuItem(MyIterator $iterator): Generator
     {
         while ($iterator->hasNext()) {
             yield $iterator->next();
         }
+    }
+
+    private function printMyMenuItem(MyMenuItemAdapter $item): void
+    {
+        echo $item->getItemsName() . ' - ' . $item->getItemsPrice() . "$\n";
     }
 }

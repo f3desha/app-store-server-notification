@@ -16,6 +16,7 @@ class MacdonaldsMenu implements Menu
      */
     private string $name = "Macdonald's menu";
 
+
     /**
      * @return string
      */
@@ -28,7 +29,6 @@ class MacdonaldsMenu implements Menu
     {
         $this->menu = new SplDoublyLinkedList();
     }
-
 
     public function addItem(MacFoodItem $item): void
     {

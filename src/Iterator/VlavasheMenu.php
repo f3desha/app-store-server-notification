@@ -16,17 +16,17 @@ class VlavasheMenu implements Menu
      */
     private string $name = "Vlavashe's menu";
 
+    public function __construct()
+    {
+        $this->menu = new SplStack();
+    }
+
     /**
      * @return string
      */
     public function getName(): string
     {
         return $this->name;
-    }
-
-    public function __construct()
-    {
-        $this->menu = new SplStack();
     }
 
     public function addToMenu(string $name, string $description, bool $isVegeterian, float $price): void
