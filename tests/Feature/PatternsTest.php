@@ -39,7 +39,7 @@ class PatternsTest extends TestCase
         $vlavasheMenu->addToMenu('Regular Shaurma', 'Some desc...', false, 15.99);
         $vlavasheMenu->addToMenu('Double Shaurma', 'Too much meat...', false, 29.99);
 
-        $waitress = new Waitress($kfcMenu, $macMenu, $vlavasheMenu);
+        $waitress = new Waitress([$kfcMenu, $macMenu, $vlavasheMenu]);
         $waitress->print();
 
         echo "\n===========================\n";
