@@ -6,20 +6,20 @@ use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\MyShopAgregator
 use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\MyShopAgregator\Adapters\PromItemAdapter;
 use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\MyShopAgregator\Iterators\MyIterator;
 use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\MyShopAgregator\Iterators\PromShopItemsIterator;
-use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\VendorShops\PromShopModule\PromShop;
+use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\VendorShops\PrestoShopModule\PrestoShop;
 
-class MyPromShop implements Shop
+class MyPrestoShop implements Shop
 {
 
     /**
-     * @var PromShop $promShop
+     * @var PrestoShop $promShop
      */
-    private PromShop $promShop;
+    private PrestoShop $promShop;
 
     /**
-     * @param PromShop $promShop
+     * @param PrestoShop $promShop
      */
-    public function __construct(PromShop $promShop)
+    public function __construct(PrestoShop $promShop)
     {
         $this->promShop = $promShop;
     }

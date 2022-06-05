@@ -1,8 +1,8 @@
 <?php
 
-namespace OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\VendorShops\PromShopModule;
+namespace OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\VendorShops\PrestoShopModule;
 
-class PromItem
+class PrestoItem
 {
     /**
      * @var string $name
@@ -67,6 +67,4 @@ class PromItem
     {
         return $this->logoUrl;
     }
-
-
 }

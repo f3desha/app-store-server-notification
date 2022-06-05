@@ -2,19 +2,19 @@
 
 namespace OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\MyShopAgregator\Adapters;
 
-use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\VendorShops\PromShopModule\PromItem;
+use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\VendorShops\PrestoShopModule\PrestoItem;
 
 class PromItemAdapter implements MyCatalogItem
 {
     /**
-     * @var PromItem $promItem
+     * @var PrestoItem $promItem
      */
-    private PromItem $promItem;
+    private PrestoItem $promItem;
 
     /**
-     * @param PromItem $promItem
+     * @param PrestoItem $promItem
      */
-    public function __construct(PromItem $promItem)
+    public function __construct(PrestoItem $promItem)
     {
         $this->promItem = $promItem;
     }

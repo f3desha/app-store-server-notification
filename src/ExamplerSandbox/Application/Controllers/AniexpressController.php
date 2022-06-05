@@ -3,27 +3,30 @@
 namespace OOP\App\ExamplerSandbox\Application\Controllers;
 
 use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\MyShopAgregator\MyCatalog;
-use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\MyShopAgregator\Shops\MyPromShop;
-use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\VendorShops\PromShopModule\PromItem;
-use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\VendorShops\PromShopModule\PromShop;
+use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\MyShopAgregator\Shops\MyPrestoShop;
+use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\VendorShops\PrestoShopModule\PrestoItem;
+use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\VendorShops\PrestoShopModule\PrestoShop;
 use OOP\App\ExamplerSandbox\Core\Controller\Controller;
 
 class AniexpressController extends Controller
 {
     public function actionIndex(): void
     {
-        $item1 = new PromItem('Asus Monitor', 'Regular monitor', 295.99);
-        $item2 = new PromItem('Prestigio PB', 'Prestigio Power Bank', 100.99);
-        $item3 = new PromItem('Inmotion V10F', 'RockMonoWheel', 1000);
+        //Use vendor shop for adding goods
+        $item1 = new PrestoItem('Asus Monitor', 'Regular monitor', 295.99);
+        $item2 = new PrestoItem('Prestigio PB', 'Prestigio Power Bank', 100.99);
+        $item3 = new PrestoItem('Inmotion V10F', 'RockMonoWheel', 1000);
 
-        $promShop = new PromShop();
-        $promShop->addItemToCatalog($item1);
-        $promShop->addItemToCatalog($item2);
-        $promShop->addItemToCatalog($item3);
+        $prestoShop = new PrestoShop();
+        $prestoShop->addItemToCatalog($item1);
+        $prestoShop->addItemToCatalog($item2);
+        $prestoShop->addItemToCatalog($item3);
 
-        $myPromShop = new MyPromShop($promShop);
+        //Wrap vendor shop into our shop wrapper
+        $myPrestoShop = new MyPrestoShop($prestoShop);
 
-        $myCatalog = new MyCatalog([$myPromShop]);
+        //Build catalog
+        $myCatalog = new MyCatalog([$myPrestoShop]);
         $myCatalog->render($myCatalog->buildCatalogItemsHtml());
     }
 

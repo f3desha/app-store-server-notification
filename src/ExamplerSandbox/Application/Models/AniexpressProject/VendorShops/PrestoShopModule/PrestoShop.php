@@ -1,15 +1,15 @@
 <?php
 
-namespace OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\VendorShops\PromShopModule;
+namespace OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\VendorShops\PrestoShopModule;
 
-class PromShop
+class PrestoShop
 {
     /**
      * @var array $listOfGoods
      */
     private array $listOfGoods;
 
-    public function addItemToCatalog(PromItem $item): void
+    public function addItemToCatalog(PrestoItem $item): void
     {
         $this->listOfGoods[] = $item;
     }
