@@ -18,7 +18,9 @@ class AniexpressController extends Controller
             <title>Title</title>
         </head>
         <body>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aperiam, commodi consectetur ipsa, iusto labore modi porro quam quis ratione reiciendis totam voluptas? Animi aperiam cum ea perspiciatis praesentium, unde!
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aperiam, commodi 
+            consectetur ipsa, iusto labore modi porro quam quis ratione reiciendis totam 
+            voluptas? Animi aperiam cum ea perspiciatis praesentium, unde!
         </body>
         </html>
         HTML;

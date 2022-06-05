@@ -2,10 +2,8 @@
 
 namespace OOP\App\ExamplerSandbox\Core\Router;
 
-use Exception;
-use OOP\App\ExamplerSandbox\Application\Controllers\AniexpressController;
-use OOP\App\ExamplerSandbox\Application\Controllers\IndexController;
 use OOP\App\ExamplerSandbox\Core\Controller\Controller;
+use ReflectionClass;
 
 class Router
 {
@@ -28,19 +26,16 @@ class Router
             $this->request['controller'] = "index";
         }
 
-        return match ($this->request['controller']) {
-            'index' => new IndexController(),
-            'aniexpress' => new AniexpressController(),
-            default => throw new Exception("Controller '{$this->request['controller']}' not found...")
-        };
+        $controllerName = ucfirst($this->request['controller']);
+        $className = "OOP\App\ExamplerSandbox\Application\Controllers\\" . $controllerName . "Controller";
+        return (new ReflectionClass($className))->newInstance();
     }
 
     public function getAction(): string
     {
         if (!isset($this->request['action'])) {
-            return "Index";
+            $this->request['action'] = "index";
         }
-        return strtoupper(substr($this->request['action'], 0, 1))
-            . substr($this->request['action'], 1, strlen($this->request['action']));
+        return ucfirst($this->request['action']);
     }
 }
