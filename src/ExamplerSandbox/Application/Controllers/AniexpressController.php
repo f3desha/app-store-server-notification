@@ -3,7 +3,10 @@
 namespace OOP\App\ExamplerSandbox\Application\Controllers;
 
 use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\MyShopAgregator\MyCatalog;
+use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\MyShopAgregator\Shops\MyOpencart;
 use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\MyShopAgregator\Shops\MyPrestoShop;
+use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\VendorShops\OpencartShopModule\Opencart;
+use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\VendorShops\OpencartShopModule\OpencartItem;
 use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\VendorShops\PrestoShopModule\PrestoItem;
 use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\VendorShops\PrestoShopModule\PrestoShop;
 use OOP\App\ExamplerSandbox\Core\Controller\Controller;
@@ -22,17 +25,24 @@ class AniexpressController extends Controller
         $prestoShop->addItemToCatalog($item2);
         $prestoShop->addItemToCatalog($item3);
 
+        $opencartItem1 = new OpencartItem(['Kingsong S20', 'Dream', 500]);
+        $opencartItem2 = new OpencartItem(['Tesla Model S', 'Dream', 32999]);
+
+        $opencart = new Opencart();
+        $opencart->add($opencartItem1);
+        $opencart->add($opencartItem2);
+
         //Wrap vendor shop into our shop wrapper
         $myPrestoShop = new MyPrestoShop($prestoShop);
+        $myOpencart = new MyOpencart($opencart);
 
         //Build catalog
-        $myCatalog = new MyCatalog([$myPrestoShop]);
+        $myCatalog = new MyCatalog([$myPrestoShop, $myOpencart]);
         $myCatalog->render($myCatalog->buildCatalogItemsHtml());
     }
 
     public function actionShowprom(): void
     {
-//        https://media.istockphoto.com/photos/mountain-landscape-picture-id517188688?k=20&m=517188688&s=612x612&w=0&h=i38qBm2P-6V4vZVEaMy_TaTEaoCMkYhvLCysE7yJQ5Q=
 //        https://images.pexels.com/photos/1172253/pexels-photo-1172253.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500
     }
 }
