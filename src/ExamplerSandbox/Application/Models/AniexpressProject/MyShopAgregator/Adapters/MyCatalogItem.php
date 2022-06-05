@@ -9,4 +9,6 @@ interface MyCatalogItem
     public function getItemsPrice(): float;
 
     public function getItemsShopLogo(): string;
+
+    public function getItemsImageUrl(): string;
 }

@@ -2,7 +2,7 @@
 
 namespace OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\MyShopAgregator\Iterators;
 
-class PromShopItemsIterator implements MyIterator
+class PrestoShopItemsIterator implements MyIterator
 {
     /**
      * @var array $listOfGoods

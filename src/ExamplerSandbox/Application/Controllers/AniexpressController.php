@@ -16,16 +16,16 @@ class AniexpressController extends Controller
     public function actionIndex(): void
     {
         //Use vendor shop for adding goods
-        $item1 = new PrestoItem('Asus Monitor', 'Regular monitor', 295.99);
-        $item2 = new PrestoItem('Prestigio PB', 'Prestigio Power Bank', 100.99);
-        $item3 = new PrestoItem('Inmotion V10F', 'RockMonoWheel', 1000);
+        $item1 = new PrestoItem('Asus Monitor', 'Regular monitor', 295.99, './resources/img1.webp');
+        $item2 = new PrestoItem('Prestigio PB', 'Prestigio Power Bank', 100.99, './resources/img2.png');
+        $item3 = new PrestoItem('Inmotion V10F', 'RockMonoWheel', 1000, './resources/img3.webp');
 
         $prestoShop = new PrestoShop();
         $prestoShop->addItemToCatalog($item1);
         $prestoShop->addItemToCatalog($item2);
         $prestoShop->addItemToCatalog($item3);
 
-        $opencartItem1 = new OpencartItem(['Kingsong S20', 'Dream', 500]);
+        $opencartItem1 = new OpencartItem(['Kingsong S20', 'Dream', 500, './resources/img4.jpg']);
         $opencartItem2 = new OpencartItem(['Tesla Model S', 'Dream', 32999]);
 
         $opencart = new Opencart();
@@ -37,12 +37,7 @@ class AniexpressController extends Controller
         $myOpencart = new MyOpencart($opencart);
 
         //Build catalog
-        $myCatalog = new MyCatalog([$myPrestoShop, $myOpencart]);
+        $myCatalog = new MyCatalog([$myPrestoShop,$myOpencart]);
         $myCatalog->render($myCatalog->buildCatalogItemsHtml());
-    }
-
-    public function actionShowprom(): void
-    {
-//        https://images.pexels.com/photos/1172253/pexels-photo-1172253.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500
     }
 }

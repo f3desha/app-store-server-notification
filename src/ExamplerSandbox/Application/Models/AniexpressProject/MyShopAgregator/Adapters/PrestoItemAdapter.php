@@ -4,33 +4,38 @@ namespace OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\MyShopAgr
 
 use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\VendorShops\PrestoShopModule\PrestoItem;
 
-class PromItemAdapter implements MyCatalogItem
+class PrestoItemAdapter implements MyCatalogItem
 {
     /**
-     * @var PrestoItem $promItem
+     * @var PrestoItem $prestoItem
      */
-    private PrestoItem $promItem;
+    private PrestoItem $prestoItem;
 
     /**
      * @param PrestoItem $promItem
      */
     public function __construct(PrestoItem $promItem)
     {
-        $this->promItem = $promItem;
+        $this->prestoItem = $promItem;
     }
 
     public function getItemsName(): string
     {
-        return $this->promItem->getName();
+        return $this->prestoItem->getName();
     }
 
     public function getItemsPrice(): float
     {
-        return $this->promItem->getPrice();
+        return $this->prestoItem->getPrice();
     }
 
     public function getItemsShopLogo(): string
     {
-        return $this->promItem->getLogoUrl();
+        return $this->prestoItem->getLogoUrl();
+    }
+
+    public function getItemsImageUrl(): string
+    {
+        return $this->prestoItem->getImageUrl();
     }
 }

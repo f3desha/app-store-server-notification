@@ -83,7 +83,7 @@ class MyCatalog implements MyIterator
                 $shopItem = $iterator->next();
                 $adapter = $shop->getCatalogItemAdapter($shopItem);
                 $htmlItems .= '<figure class="figure">
-                      <img src="' . $adapter->getItemsShopLogo() . '" class="figure-img img-fluid rounded" alt="...">
+                      <img src="' . $adapter->getItemsImageUrl() . '" class="figure-img img-fluid rounded" alt="...">
                       <figcaption class="figure-caption">' . $adapter->getItemsName() . ' - ' . $adapter->getItemsPrice() . '$</figcaption>
                     </figure> ';
             }

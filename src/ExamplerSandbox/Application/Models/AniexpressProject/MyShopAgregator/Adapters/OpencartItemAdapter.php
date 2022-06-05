@@ -33,4 +33,9 @@ class OpencartItemAdapter implements MyCatalogItem
     {
         return $this->item->getLogoUrl();
     }
+
+    public function getItemsImageUrl(): string
+    {
+        return $this->item->getImageUrl();
+    }
 }

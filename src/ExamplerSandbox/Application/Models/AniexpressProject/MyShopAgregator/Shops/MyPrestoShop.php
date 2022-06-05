@@ -3,9 +3,9 @@
 namespace OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\MyShopAgregator\Shops;
 
 use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\MyShopAgregator\Adapters\MyCatalogItem;
-use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\MyShopAgregator\Adapters\PromItemAdapter;
+use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\MyShopAgregator\Adapters\PrestoItemAdapter;
 use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\MyShopAgregator\Iterators\MyIterator;
-use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\MyShopAgregator\Iterators\PromShopItemsIterator;
+use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\MyShopAgregator\Iterators\PrestoShopItemsIterator;
 use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\VendorShops\PrestoShopModule\PrestoShop;
 
 class MyPrestoShop implements Shop
@@ -28,7 +28,7 @@ class MyPrestoShop implements Shop
     public function getIterator(): MyIterator
     {
 
-        return new PromShopItemsIterator($this->getListOfItems());
+        return new PrestoShopItemsIterator($this->getListOfItems());
     }
 
     public function getListOfItems(): array
@@ -38,6 +38,6 @@ class MyPrestoShop implements Shop
 
     public function getCatalogItemAdapter($nativeItem): MyCatalogItem
     {
-        return new PromItemAdapter($nativeItem);
+        return new PrestoItemAdapter($nativeItem);
     }
 }
