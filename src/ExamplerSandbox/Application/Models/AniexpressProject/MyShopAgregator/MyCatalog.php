@@ -3,6 +3,7 @@
 namespace OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\MyShopAgregator;
 
 use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\MyShopAgregator\Iterators\MyIterator;
+use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\MyShopAgregator\Shops\Shop;
 
 class MyCatalog implements MyIterator
 {
@@ -16,12 +17,8 @@ class MyCatalog implements MyIterator
      */
     private int $counter;
 
-    /**
-     * @param array $listOfShops
-     */
-    public function __construct(array $listOfShops)
+    public function __construct()
     {
-        $this->listOfShops = $listOfShops;
         $this->counter = 0;
     }
 
@@ -89,5 +86,10 @@ class MyCatalog implements MyIterator
             }
         }
         return $htmlItems;
+    }
+
+    public function add(Shop $shop): void
+    {
+        $this->listOfShops[] = $shop;
     }
 }

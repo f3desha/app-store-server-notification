@@ -32,12 +32,11 @@ class AniexpressController extends Controller
         $opencart->add($opencartItem1);
         $opencart->add($opencartItem2);
 
-        //Wrap vendor shop into our shop wrapper
-        $myPrestoShop = new MyPrestoShop($prestoShop);
-        $myOpencart = new MyOpencart($opencart);
+        //Wrap vendor shop into our shop wrapper & Build catalog
+        $myCatalog = new MyCatalog;
+        $myCatalog->add(new MyPrestoShop($prestoShop));
+        $myCatalog->add(new MyOpencart($opencart));
 
-        //Build catalog
-        $myCatalog = new MyCatalog([$myPrestoShop,$myOpencart]);
         $myCatalog->render($myCatalog->buildCatalogItemsHtml());
     }
 }
