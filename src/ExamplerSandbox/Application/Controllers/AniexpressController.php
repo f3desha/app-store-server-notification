@@ -3,6 +3,7 @@
 namespace OOP\App\ExamplerSandbox\Application\Controllers;
 
 use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\MyShopAgregator\MyCatalog;
+use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\MyShopAgregator\Shops\MyPromShop;
 use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\VendorShops\PromShopModule\PromItem;
 use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\VendorShops\PromShopModule\PromShop;
 use OOP\App\ExamplerSandbox\Core\Controller\Controller;
@@ -20,7 +21,9 @@ class AniexpressController extends Controller
         $promShop->addItemToCatalog($item2);
         $promShop->addItemToCatalog($item3);
 
-        $myCatalog = new MyCatalog([$promShop]);
+        $myPromShop = new MyPromShop($promShop);
+
+        $myCatalog = new MyCatalog([$myPromShop]);
         $myCatalog->render($myCatalog->buildCatalogItemsHtml());
     }
 

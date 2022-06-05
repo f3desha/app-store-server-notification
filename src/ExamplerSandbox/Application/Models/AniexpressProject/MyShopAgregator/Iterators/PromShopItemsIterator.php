@@ -2,8 +2,6 @@
 
 namespace OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\MyShopAgregator\Iterators;
 
-use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\MyShopAgregator\MyIterator;
-
 class PromShopItemsIterator implements MyIterator
 {
     /**

@@ -2,6 +2,8 @@
 
 namespace OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\MyShopAgregator;
 
+use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\MyShopAgregator\Iterators\MyIterator;
+
 class MyCatalog implements MyIterator
 {
     /**

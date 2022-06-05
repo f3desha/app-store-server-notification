@@ -2,7 +2,6 @@
 
 namespace OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\MyShopAgregator\Adapters;
 
-use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\MyShopAgregator\MyCatalogItem;
 use OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\VendorShops\PromShopModule\PromItem;
 
 class PromItemAdapter implements MyCatalogItem
@@ -34,5 +33,4 @@ class PromItemAdapter implements MyCatalogItem
     {
         return $this->promItem->getLogoUrl();
     }
-
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\MyShopAgregator;
+namespace OOP\App\ExamplerSandbox\Application\Models\AniexpressProject\MyShopAgregator\Iterators;
 
 interface MyIterator
 {
