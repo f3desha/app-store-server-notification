@@ -14,6 +14,11 @@ use OOP\App\Composite\Waitress;
 use OOP\App\Factory\FactoryMethod\LogisticsFactory\LogisticsFactory;
 use OOP\App\Factory\InternetTest\MyShopProductFactory;
 use OOP\App\Factory\InternetTest\Shop;
+use OOP\App\Iterator\KFCsMenuAgregate;
+use OOP\App\Iterator\MacdonaldsMenuAgregate;
+use OOP\App\Iterator\MacFoodItem;
+use OOP\App\Iterator\VlavasheMenuAgregate;
+use OOP\App\Iterator\Waitress as IteratorWaitress;
 use OOP\App\TemplateMethod\StarbuzCoffee\CoffeeWithHook;
 use PHPUnit\Framework\TestCase;
 use SplDoublyLinkedList;
@@ -47,26 +52,26 @@ class PatternsTest extends TestCase
 
     public function testIterator()
     {
-//        $macMenu = new MacdonaldsMenuAdapter();
-//        $macMenu->addItem(new MacFoodItem('Cheeseburger', 17.99));
-//        $macMenu->addItem(new MacFoodItem('Hamburger', 14.99));
-//        $macMenu->addItem(new MacFoodItem('Cola', 5.99));
-//
-//
-//        $kfcMenu = new KFCsMenuAdapter();
-//        $kfcMenu->add(['Chicken Wings', 20.99]);
-//        $kfcMenu->add(['Bulbasandwich', 15.99]);
-//        $kfcMenu->add(['Onion Rings', 12.99]);
-//
-//        $vlavasheMenu = new VlavasheMenuAdapter();
-//        $vlavasheMenu->addToMenu('Regular Shaurma', 'Some desc...', false, 15.99);
-//        $vlavasheMenu->addToMenu('Double Shaurma', 'Too much meat...', false, 29.99);
-//
-//        $waitress = new Waitress([$kfcMenu, $macMenu, $vlavasheMenu]);
-//        $waitress->print();
-//
-//        echo "\n===========================\n";
-//        $this->assertSame(0, 0);
+        $macMenu = new MacdonaldsMenuAgregate();
+        $macMenu->addItem(new MacFoodItem('Cheeseburger', 17.99));
+        $macMenu->addItem(new MacFoodItem('Hamburger', 14.99));
+        $macMenu->addItem(new MacFoodItem('Cola', 5.99));
+
+
+        $kfcMenu = new KFCsMenuAgregate();
+        $kfcMenu->add(['Chicken Wings', 20.99]);
+        $kfcMenu->add(['Bulbasandwich', 15.99]);
+        $kfcMenu->add(['Onion Rings', 12.99]);
+
+        $vlavasheMenu = new VlavasheMenuAgregate();
+        $vlavasheMenu->addToMenu('Regular Shaurma', 'Some desc...', false, 15.99);
+        $vlavasheMenu->addToMenu('Double Shaurma', 'Too much meat...', false, 29.99);
+
+        $waitress = new IteratorWaitress([$kfcMenu, $macMenu, $vlavasheMenu]);
+        $waitress->print();
+
+        echo "\n===========================\n";
+        $this->assertSame(0, 0);
     }
 
     public function testStarbuzCoffee()
