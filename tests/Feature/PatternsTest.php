@@ -8,42 +8,65 @@ use OOP\App\Adapter\InternetTest\PayPal;
 use OOP\App\Adapter\InternetTest\PayPalAdapter;
 use OOP\App\Adapter\MyAdapter\MyIterator;
 use OOP\App\Adapter\MyAdapter\MyIteratorSplDoublyLinkedListAdapter;
+use OOP\App\Composite\Menu;
+use OOP\App\Composite\MenuItem;
+use OOP\App\Composite\Waitress;
 use OOP\App\Factory\FactoryMethod\LogisticsFactory\LogisticsFactory;
 use OOP\App\Factory\InternetTest\MyShopProductFactory;
 use OOP\App\Factory\InternetTest\Shop;
-use OOP\App\Iterator\KFCsMenu;
-use OOP\App\Iterator\MacdonaldsMenu;
-use OOP\App\Iterator\MacFoodItem;
-use OOP\App\Iterator\VlavasheMenu;
-use OOP\App\Iterator\Waitress;
 use OOP\App\TemplateMethod\StarbuzCoffee\CoffeeWithHook;
 use PHPUnit\Framework\TestCase;
 use SplDoublyLinkedList;
 
 class PatternsTest extends TestCase
 {
-    public function testIterator()
+    public function testComposite()
     {
-        $macMenu = new MacdonaldsMenu();
-        $macMenu->addItem(new MacFoodItem('Cheeseburger', 17.99));
-        $macMenu->addItem(new MacFoodItem('Hamburger', 14.99));
-        $macMenu->addItem(new MacFoodItem('Cola', 5.99));
+        $pancakeHouseMenu = new Menu('PANCAKE HOUSE MENU', 'Breakfast');
+        $dinnerMenu = new Menu('DINER MENU', 'Lunch');
+        $cafeMenu = new Menu('CAFE MENU', 'Cafe');
+        $desertMenu = new Menu('DESERT MENU', 'Desert');
 
+        $allMenus = new Menu("ALL MENUS", "All menus combined");
 
-        $kfcMenu = new KFCsMenu();
-        $kfcMenu->add(['Chicken Wings', 20.99]);
-        $kfcMenu->add(['Bulbasandwich', 15.99]);
-        $kfcMenu->add(['Onion Rings', 12.99]);
+        $allMenus->add($pancakeHouseMenu);
+        $allMenus->add($dinnerMenu);
+        $allMenus->add($cafeMenu);
 
-        $vlavasheMenu = new VlavasheMenu();
-        $vlavasheMenu->addToMenu('Regular Shaurma', 'Some desc...', false, 15.99);
-        $vlavasheMenu->addToMenu('Double Shaurma', 'Too much meat...', false, 29.99);
+        $dinnerMenu->add(new MenuItem("Pasta", "Spagetti with marinara sauce", true, 3.89));
+        $dinnerMenu->add($desertMenu);
 
-        $waitress = new Waitress([$kfcMenu, $macMenu, $vlavasheMenu]);
-        $waitress->print();
+        $desertMenu->add(new MenuItem("Apple pie", "Nice apple pie", true, 1.59));
 
+        $waitress = new Waitress($allMenus);
+
+        $waitress->printMenu();
         echo "\n===========================\n";
         $this->assertSame(0, 0);
+    }
+
+    public function testIterator()
+    {
+//        $macMenu = new MacdonaldsMenuAdapter();
+//        $macMenu->addItem(new MacFoodItem('Cheeseburger', 17.99));
+//        $macMenu->addItem(new MacFoodItem('Hamburger', 14.99));
+//        $macMenu->addItem(new MacFoodItem('Cola', 5.99));
+//
+//
+//        $kfcMenu = new KFCsMenuAdapter();
+//        $kfcMenu->add(['Chicken Wings', 20.99]);
+//        $kfcMenu->add(['Bulbasandwich', 15.99]);
+//        $kfcMenu->add(['Onion Rings', 12.99]);
+//
+//        $vlavasheMenu = new VlavasheMenuAdapter();
+//        $vlavasheMenu->addToMenu('Regular Shaurma', 'Some desc...', false, 15.99);
+//        $vlavasheMenu->addToMenu('Double Shaurma', 'Too much meat...', false, 29.99);
+//
+//        $waitress = new Waitress([$kfcMenu, $macMenu, $vlavasheMenu]);
+//        $waitress->print();
+//
+//        echo "\n===========================\n";
+//        $this->assertSame(0, 0);
     }
 
     public function testStarbuzCoffee()

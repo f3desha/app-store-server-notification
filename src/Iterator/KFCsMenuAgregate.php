@@ -4,7 +4,7 @@ namespace OOP\App\Iterator;
 
 use InvalidArgumentException;
 
-class KFCsMenu implements Menu
+class KFCsMenuAgregate implements MenuAgregate
 {
     /**
      * @var array $menu

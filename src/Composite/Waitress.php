@@ -1,20 +1,29 @@
 <?php
 
-namespace OOP\App\Iterator;
+namespace OOP\App\Composite;
 
 use Generator;
+use OOP\App\Iterator\MenusCollection;
+use OOP\App\Iterator\MyIterator;
+use OOP\App\Iterator\MyMenuItemAdapter;
 
 class Waitress
 {
     /**
-     * @var array $menusCollection
+     * @var MenuComponent $allMenus
      */
-    private array $menusCollection;
+    private MenuComponent $allMenus;
 
-    public function __construct(array $menusCollection)
+    public function __construct(MenuComponent $allMenus)
     {
-        $this->menusCollection = $menusCollection;
+        $this->allMenus = $allMenus;
     }
+
+    public function printMenu(): void
+    {
+        $this->allMenus->print();
+    }
+
 
     public function print(): void
     {

@@ -4,7 +4,7 @@ namespace OOP\App\Iterator;
 
 use SplDoublyLinkedList;
 
-class MacdonaldsMenu implements Menu
+class MacdonaldsMenuAgregate implements MenuAgregate
 {
     /**
      * @var SplDoublyLinkedList $menu

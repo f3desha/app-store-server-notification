@@ -2,7 +2,7 @@
 
 namespace OOP\App\Iterator;
 
-interface Menu
+interface MenuAgregate
 {
     public function getIterator(): MyIterator;
 

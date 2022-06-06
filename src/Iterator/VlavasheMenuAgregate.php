@@ -4,7 +4,7 @@ namespace OOP\App\Iterator;
 
 use SplStack;
 
-class VlavasheMenu implements Menu
+class VlavasheMenuAgregate implements MenuAgregate
 {
     /**
      * @var SplStack $menu
