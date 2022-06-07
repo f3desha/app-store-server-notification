@@ -8,9 +8,9 @@ use OOP\App\Adapter\InternetTest\PayPal;
 use OOP\App\Adapter\InternetTest\PayPalAdapter;
 use OOP\App\Adapter\MyAdapter\MyIterator;
 use OOP\App\Adapter\MyAdapter\MyIteratorSplDoublyLinkedListAdapter;
-use OOP\App\Composite\Menu;
-use OOP\App\Composite\MenuItem;
-use OOP\App\Composite\Waitress;
+use OOP\App\Composite\Coffee\Menu;
+use OOP\App\Composite\Coffee\MenuItem;
+use OOP\App\Composite\Coffee\Waitress;
 use OOP\App\Factory\FactoryMethod\LogisticsFactory\LogisticsFactory;
 use OOP\App\Factory\InternetTest\MyShopProductFactory;
 use OOP\App\Factory\InternetTest\Shop;
@@ -25,6 +25,7 @@ use SplDoublyLinkedList;
 
 class PatternsTest extends TestCase
 {
+
     public function testComposite()
     {
         $pancakeHouseMenu = new Menu('PANCAKE HOUSE MENU', 'Breakfast');

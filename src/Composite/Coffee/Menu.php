@@ -1,6 +1,6 @@
 <?php
 
-namespace OOP\App\Composite;
+namespace OOP\App\Composite\Coffee;
 
 use OOP\App\Iterator\MyIterator;
 
@@ -42,6 +42,9 @@ class Menu extends MenuComponent
         unset($this->menuComponents[$key]);
     }
 
+    /**
+     * @return void
+     */
     public function print(): void
     {
         echo "\n" . $this->getName() . ", " . $this->getDescription() . " -----------------\n";

@@ -28,17 +28,18 @@ abstract class Pizza
     /**
      * @return void
      */
-    public function bake(): void
+    public function cut(): void
     {
-        echo "Standard process of baking pizza...\n";
+        echo "Standard process of cutting pizza...\n";
     }
+
 
     /**
      * @return void
      */
-    public function cut(): void
+    public function bake(): void
     {
-        echo "Standard process of cutting pizza...\n";
+        echo "Standard process of baking pizza...\n";
     }
 
     /**

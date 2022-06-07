@@ -1,6 +1,6 @@
 <?php
 
-namespace OOP\App\Composite;
+namespace OOP\App\Composite\Coffee;
 
 class MenuItem extends MenuComponent
 {
