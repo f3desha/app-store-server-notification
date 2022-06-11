@@ -19,12 +19,57 @@ use OOP\App\Iterator\MacdonaldsMenuAgregate;
 use OOP\App\Iterator\MacFoodItem;
 use OOP\App\Iterator\VlavasheMenuAgregate;
 use OOP\App\Iterator\Waitress as IteratorWaitress;
+use OOP\App\State\GumballAutomat\GumballMachine;
 use OOP\App\TemplateMethod\StarbuzCoffee\CoffeeWithHook;
 use PHPUnit\Framework\TestCase;
 use SplDoublyLinkedList;
 
 class PatternsTest extends TestCase
 {
+    public function testGumballAutomat()
+    {
+        $gumball = new GumballMachine(5);
+
+        $gumball->insertQuarter();
+        $gumball->turnCrank();
+        $gumball->status();
+        echo "\n===========================\n";
+
+        $gumball->insertQuarter();
+        $gumball->ejectQuarter();
+        $gumball->turnCrank();
+        $gumball->status();
+        echo "\n===========================\n";
+
+        $gumball->insertQuarter();
+        $gumball->turnCrank();
+        $gumball->status();
+
+        $gumball->insertQuarter();
+        $gumball->turnCrank();
+        $gumball->status();
+
+        $gumball->ejectQuarter();
+        $gumball->status();
+
+        echo "\n===========================\n";
+
+        $gumball->insertQuarter();
+        $gumball->insertQuarter();
+        $gumball->turnCrank();
+        $gumball->status();
+
+        $gumball->insertQuarter();
+        $gumball->turnCrank();
+        $gumball->status();
+
+        $gumball->insertQuarter();
+        $gumball->turnCrank();
+        $gumball->status();
+
+        echo "\n===========================\n";
+        $this->assertSame(0, 0);
+    }
 
     public function testComposite()
     {
@@ -150,7 +195,6 @@ EOS;
 
         $this->assertTrue($actualOutput == $targetOutput);
     }
-
 
     public function testInternetTestAdaptor()
     {
