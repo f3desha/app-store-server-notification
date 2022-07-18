@@ -19,6 +19,7 @@ use OOP\App\Iterator\MacdonaldsMenuAgregate;
 use OOP\App\Iterator\MacFoodItem;
 use OOP\App\Iterator\VlavasheMenuAgregate;
 use OOP\App\Iterator\Waitress as IteratorWaitress;
+use OOP\App\Mix\PatternPattern\DuckSimulator;
 use OOP\App\State\GumballAutomat\GumballMachine;
 use OOP\App\TemplateMethod\StarbuzCoffee\CoffeeWithHook;
 use PHPUnit\Framework\TestCase;
@@ -26,6 +27,14 @@ use SplDoublyLinkedList;
 
 class PatternsTest extends TestCase
 {
+    public function testDuckSimulator()
+    {
+        $duckSimulator = new DuckSimulator();
+        $duckSimulator->main();
+        $this->assertSame(0, 0);
+
+    }
+
     public function testGumballAutomat()
     {
         $gumball = new GumballMachine(5);
